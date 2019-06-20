@@ -1,0 +1,78 @@
+<!DOCTYPE html >
+<html>
+<head>
+	<meta  charset="UTF-8">
+	<title> 수요조사 상세페이지</title>
+	<style>
+		* {margin: 0; padding: 0;}
+		#wrap{width: 1200px; margin:0 auto;}
+		header{width:100%;, height: 150px; background-color: pink;}
+		#saleImage{float: left; width:60%; height: 400px; background-color: magenta;}
+		#saleImage .saleImg_ar{width:100%; height: 80%; background-color: mistyrose;}
+		#saleImage .saleName_hg{width:100% height: 20%;}
+
+		#saleInformation{overflow: hidden; float: right; width:40%; height: 400px; background-color: purple;}
+		#saleInformation .saleInfo_ar{width:100%; height: 80%; background-color: lightyellow;}
+		#saleInformation .map_nav{width:100% height: 20%;}
+
+		#realtimeVote{float: left; width:60%; height: 300px; background-color: antiquewhite;}
+		#realtimeVote .voteName{width: 50%; height:50px; background-color:purple; }
+		#realtimeVote .voteGraph_ar{width:100%; height: 250px; background-color: lightyellow;}
+
+		#store{float: left; width:60%; height: 300px; background-color: antiquewhite;}
+		#store .analName{width: 50%; height:50px; background-color:purple;}
+		#store_analysis_ar{width:100%; height: 250px; background-color: lightyellow;}
+
+		#vote{float:right; width:40%; height: 600px; background-color: pink;}
+		#vote .dept{width: 100%; height:60%; background-color: lightyellow;}
+		#vote .reward{width: 100%; height:30%;}
+		#vote .button{width: 100%; height:10%; background-color: lightyellow;}
+
+
+		footer{clear: both; width:100%; height:150px; border: solid 1px gray;}
+
+		@media (max-width: 1220px){
+			#wrap{width: 100%;}
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<header>header</header>
+		<!--매물 정보 (사진, 제목/ 정보)-->
+		<section id="saleImage">
+			<article class="saleImg_ar"> 매물 이미지</article>
+			<hgroup calss="saleName_hg"> 매물 제목 </hgroup>
+		</section>
+		<section id="saleInformation">
+			<article class="saleInfo_ar"> 매물 상세내용</article>
+			<nav class="map_nav">매물 지도</nav>
+		</section>
+
+		<!--투표현황-->
+		<section id="realtimeVote">
+			<hgroup class="voteName">투표현황 제목</hgroup>
+			<article class="voteGraph_ar">투표현황그래프</article>
+		</section>
+
+		<!--투표-->
+		<section id="vote">
+			<article class="dept">업종투표</article>
+			<article class="reward">리워드투표</article>
+			<nav class="button">투표하기 버튼??</nav>
+		</section>
+
+		<!--상권분석-->
+		<section id="store">
+			<hgroup class="analName">상권분석 제목</hgroup>
+			<article class="analysis_ar">상권분석</article>
+		</section>
+
+		
+
+		<footer>
+			copyright
+		</footer>
+	</div>
+	
+</body>
