@@ -1,7 +1,31 @@
-{ "id":123,
- "name":"Pankaj Kumar",
-  "permanent":true,
-   "address":[{ "street":"El Camino Real",
- "city":"San Jose", "zipcode":"95014" }],
-  "phoneNumbers":["9988664422", "1234567890"],
-   "role":"Developer" }
+{
+"DESCRIPTION" : {
+"OVPOP_IDEX_VALUE":"과밀_지수_값",
+"ACTVTY_IDX_SCTN_CD_NM":"활성도_지표_구간_코드_명",
+"ACTVTY_IDX_VALUE":"활성도_지표_값",
+"STABLE_IDX_VALUE":"안정성_지표_값",
+"SVC_INDUTY_CD":"서비스_업종_코드",
+"STDR_YM_CD":"기준_년월_코드",
+"ACTVTY_IDX_SCTN_CD":"활성도_지표_구간_코드",
+"TRDAR_CD_NM":"상권_코드_명",
+"STABLE_IDX_SCTN_CD_NM":"안정성_지표_구간_코드_명",
+"GROWTH_IDX_SCTN_CD_NM":"성장성_지표_구간_코드_명",
+"STABLE_IDX_SCTN_CD":"안정성_지표_구간_코드",
+"OVPOP_IDEX_SCTN_CD":"과밀_지수_구간_코드",
+"GROWTH_IDX_SCTN_CD":"성장성_지표_구간_코드",
+"SVC_INDUTY_CD_NM":"서비스_업종_코드_명",
+"TRDAR_CD":"상권_코드",
+"GROWTH_IDX_VALUE":"성장성_지표_값",
+"OVPOP_IDEX_SCTN_CD_NM":"과밀_지수_구간_코드_명"
+},
+"DATA" : [
+{"actvty_idx_sctn_cd":null,"stable_idx_value":49.1,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":"경계","stable_idx_sctn_cd":"3","trdar_cd_nm":"희우정로16길","growth_idx_value":34.89,"ovpop_idex_value":54.7,"growth_idx_sctn_cd":"4","stable_idx_sctn_cd_nm":"보통","svc_induty_cd_nm":"화장품","growth_idx_sctn_cd_nm":"낮음","actvty_idx_value":null,"svc_induty_cd":"CS300011","actvty_idx_sctn_cd_nm":null,"ovpop_idex_sctn_cd":"2","trdar_cd":"001744"},
+{"actvty_idx_sctn_cd":"3","stable_idx_value":49.68,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":"주의","stable_idx_sctn_cd":"3","trdar_cd_nm":"희우정로16길","growth_idx_value":34.3,"ovpop_idex_value":44.1,"growth_idx_sctn_cd":"4","stable_idx_sctn_cd_nm":"보통","svc_induty_cd_nm":"문구점","growth_idx_sctn_cd_nm":"낮음","actvty_idx_value":47.48,"svc_induty_cd":"CS300010","actvty_idx_sctn_cd_nm":"보통","ovpop_idex_sctn_cd":"3","trdar_cd":"001744"},
+{"actvty_idx_sctn_cd":"3","stable_idx_value":null,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":null,"stable_idx_sctn_cd":null,"trdar_cd_nm":"희우정로16길","growth_idx_value":55.01,"ovpop_idex_value":null,"growth_idx_sctn_cd":"2","stable_idx_sctn_cd_nm":null,"svc_induty_cd_nm":"약국","growth_idx_sctn_cd_nm":"약간높음","actvty_idx_value":43.98,"svc_induty_cd":"CS300009","actvty_idx_sctn_cd_nm":"보통","ovpop_idex_sctn_cd":null,"trdar_cd":"001744"},
+{"actvty_idx_sctn_cd":"3","stable_idx_value":53.81,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":"경계","stable_idx_sctn_cd":"2","trdar_cd_nm":"희우정로16길","growth_idx_value":40.66,"ovpop_idex_value":52,"growth_idx_sctn_cd":"3","stable_idx_sctn_cd_nm":"약간높음","svc_induty_cd_nm":"패션잡화","growth_idx_sctn_cd_nm":"보통","actvty_idx_value":49.49,"svc_induty_cd":"CS300008","actvty_idx_sctn_cd_nm":"보통","ovpop_idex_sctn_cd":"2","trdar_cd":"001744"},
+{"actvty_idx_sctn_cd":"3","stable_idx_value":52.04,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":"경계","stable_idx_sctn_cd":"2","trdar_cd_nm":"희우정로16길","growth_idx_value":46.8,"ovpop_idex_value":52.8,"growth_idx_sctn_cd":"3","stable_idx_sctn_cd_nm":"약간높음","svc_induty_cd_nm":"의류점","growth_idx_sctn_cd_nm":"보통","actvty_idx_value":49.23,"svc_induty_cd":"CS300007","actvty_idx_sctn_cd_nm":"보통","ovpop_idex_sctn_cd":"2","trdar_cd":"001744"},
+{"actvty_idx_sctn_cd":"3","stable_idx_value":null,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":"경계","stable_idx_sctn_cd":null,"trdar_cd_nm":"희우정로16길","growth_idx_value":75.15,"ovpop_idex_value":57.9,"growth_idx_sctn_cd":"1","stable_idx_sctn_cd_nm":null,"svc_induty_cd_nm":"과일채소","growth_idx_sctn_cd_nm":"높음","actvty_idx_value":48.76,"svc_induty_cd":"CS300006","actvty_idx_sctn_cd_nm":"보통","ovpop_idex_sctn_cd":"2","trdar_cd":"001744"},
+{"actvty_idx_sctn_cd":"3","stable_idx_value":55.29,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":"경계","stable_idx_sctn_cd":"2","trdar_cd_nm":"희우정로16길","growth_idx_value":56.17,"ovpop_idex_value":51.6,"growth_idx_sctn_cd":"2","stable_idx_sctn_cd_nm":"약간높음","svc_induty_cd_nm":"정육점","growth_idx_sctn_cd_nm":"약간높음","actvty_idx_value":44.93,"svc_induty_cd":"CS300005","actvty_idx_sctn_cd_nm":"보통","ovpop_idex_sctn_cd":"2","trdar_cd":"001744"},
+{"actvty_idx_sctn_cd":"3","stable_idx_value":69.46,"stdr_ym_cd":"201810","ovpop_idex_sctn_cd_nm":"주의","stable_idx_sctn_cd":"1","trdar_cd_nm":"희우정로16길","growth_idx_value":60.1,"ovpop_idex_value":47.6,"growth_idx_sctn_cd":"1","stable_idx_sctn_cd_nm":"높음","svc_induty_cd_nm":"휴대폰","growth_idx_sctn_cd_nm":"높음","actvty_idx_value":48.91,"svc_induty_cd":"CS300004","actvty_idx_sctn_cd_nm":"보통","ovpop_idex_sctn_cd":"3","trdar_cd":"001744"}
+]
+}

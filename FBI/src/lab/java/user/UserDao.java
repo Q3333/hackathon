@@ -55,14 +55,13 @@ public class UserDao {
 		rsint=0;
 		String arrtsql ="";
 		if(selected==1) {
-			
 			for(int i = 0;i<attribute.length;i++) {
 				arrtsql+=attribute[i];
 				if(i!=attribute.length-1) {
 					arrtsql+=",";
 				}
 			}
-			System.out.println(arrtsql);
+			
 			
 			String sql = "insert into userinfo("+arrtsql+")\n"
 					+ "values(?,?,?,?,?,?,?,?)";
@@ -76,16 +75,6 @@ public class UserDao {
 						  pstmt.setString(i+1,userinfo[i]); }
 				  
 				  }
-				 
-				/*
-				 * pstmt.setString(1, userinfo[0]); pstmt.setString(2, userinfo[1]);
-				 * pstmt.setString(3, userinfo[2]); pstmt.setString(4, userinfo[3]);
-				 * pstmt.setString(5, userinfo[4]);
-				 * pstmt.setInt(6,Integer.parseInt(userinfo[5])); pstmt.setString(7,
-				 * userinfo[6]); pstmt.setString(8, userinfo[7]);
-				 */
-				 
-				 
 				rsint = pstmt.executeUpdate();
 				if(rsint>0) {
 					return 1;//성공했을 때 1
@@ -103,14 +92,10 @@ public class UserDao {
 					arrtsql+=",";
 				}
 			}
-			
-			//String sql = "insert into userinfo(username,userid,userpass,usernum,concernList)\r\n" + 
-			//		"values(?,?,?,?,?)";
+
 			String sql = "insert into userinfo("+arrtsql+")\r\n" + 
 					"values(?,?,?,?,?)";
-			
-			
-			
+
 			try {
 				pstmt = conn.prepareStatement(sql);				
 				for(int i=0;i<userinfo.length;i++) { 
@@ -128,6 +113,31 @@ public class UserDao {
 			}
 			
 		}
+		return 0;
+	}
+	public int insert_building_info(String[] buildingInfo) {
+		
+		int rsint = 0;
+		String sql = "insert into building values(?,?,?,null,null,?,?,?,?,null,null,'N')";
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, buildingInfo[0]);
+			pstmt.setString(2, buildingInfo[1]);
+			pstmt.setString(3, buildingInfo[2]);
+			pstmt.setString(4, buildingInfo[3]);
+			pstmt.setInt(5, Integer.parseInt(buildingInfo[4]));
+			pstmt.setInt(6, Integer.parseInt(buildingInfo[5]));
+			pstmt.setInt(7, Integer.parseInt(buildingInfo[6]));
+			rsint = pstmt.executeUpdate();
+			if(rsint > 0) {
+				return 1;
+			}
+		}
+		catch(Exception e){
+			e.printStackTrace();
+		}
+		
 		return 0;
 	}
 }
