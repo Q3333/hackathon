@@ -37,7 +37,6 @@ background-color: yellow;
 <input type="submit" value="로그인" name="login">
 </form>
 <form name="form1" method="get" action="SelectJoin.jsp">
-<input type="hidden" name="select" value="1"/>
 <input type="button" value="회원가입" onclick="moveJoin()"><br>
 <label><%= hoho%></label>
 
