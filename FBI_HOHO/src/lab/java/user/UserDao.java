@@ -19,7 +19,7 @@ public class UserDao {
 
 	public UserDao(){
 		try {
-			prop.load(new FileInputStream("F:/IT/JAVA/workspace/FBI_HOHO/DBINFO.properties"));
+			prop.load(new FileInputStream("C:/Users/Q3/HKT/hackathon/FBI_HOHO/DBINFO.properties"));
 			Class.forName(prop.getProperty("driver"));
 			conn=DriverManager.getConnection(
 			prop.getProperty("url"),
@@ -219,17 +219,193 @@ public String getX(String bdId) { //X좌표 가져오기
 	   return y;
 	}
 
+	public int getBuildingNum() {
+		String sql = "select count(*) from building";
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			if(rs.next()) {
+				return rs.getInt(1);
+			}
+			
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return 0;
+	}
 
+	public String getBuildingPic(String buu) {
+		String src ="";
+		String sql = "select src from building where bdid=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				src = rs.getString(1);
+				}
+			
+		}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return src;
+	}
 
+	
+	public double getStarAct(String buu) {
+		double act = 0;
+		String sql = "select ACTVTY_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();		
+			if(rs.next()) {
+				act = Double.parseDouble(rs.getString(1));
+			}			
+		}		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return act;
+	}
+	
+	public double getStarStb(String buu) {
+		double act = 0;
+		String sql = "select STABLE_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();		
+			if(rs.next()) {			
+				act = Double.parseDouble(rs.getString(1));
+			}			
+		}		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return act;
+	}
+	
+	public double getStarGrw(String buu) {
+		double act = 0;
+		String sql = "select GROWTH_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();		
+			if(rs.next()) {			
+				act = Double.parseDouble(rs.getString(1));
+			}			
+		}		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return act;
+	}
 
+	public double getStarOvp(String buu) {
+		double act = 0;
+		String sql = "select OVPOP_IDEX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		try {		
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();		
+			if(rs.next()) {			
+				act = Double.parseDouble(rs.getString(1));
+			}			
+		}		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return act;
+	}
 
+	public String getBdInfo(String buu) {
+		String INF ="";
+		String sql = "select INFORMATION from building where bdid=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				INF = rs.getString(1);
+				}
+			}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return INF;
+	}
+	
+	public String getBdComt(String buu) {
+		String CMT ="";
+		String sql = "select COMMENTS from building where bdid=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				CMT = rs.getString(1);
+				}
+			}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return CMT;
+	}
 
+	public String getBdTitle(String buu) {
+		String abc ="";
+		String sql = "select TITLE from building where bdid=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				abc = rs.getString(1);
+				}
+			}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return abc;
+	}
+	
+	public String getTaDetail(String buu) {
+		String abc ="";
+		String sql = "select TA_DETAIL from building where bdid=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				abc = rs.getString(1);
+				}
+			}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return abc;
+	}
 
-
-
-
-
-
-
+	
 
 }
