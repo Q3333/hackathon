@@ -68,13 +68,13 @@ else if(select ==2){
 	if(result>0){
 		out.println("<script>");
 		out.println("alert('일반사용자 가입 성공')");
-		//out.println("location.href='login.jsp'");
+		out.println("location.href='login.jsp'");
 		out.println("</script>");
 	
 	}
 	else if(result==0){
 		out.println("<script>alert('일반사용자 가입 실패')");
-		//out.println("history.back()</script>");
+		out.println("history.back()</script>");
 	}
 }
 %>
