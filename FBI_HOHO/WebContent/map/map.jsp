@@ -1,3 +1,5 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="lab.java.user.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,13 +14,29 @@
 
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=aad4bf3f77dfed13f54d32cd0ddf635d">
 	</script>
+	
+	
+	<%
+   UserDao userdao = new UserDao();
+   String bdid = "KBM003657";
+   //request.getParameter("bdid");
+   HashMap<String, String> xy = new HashMap<>();
+    xy.put("x",userdao.getX(bdid));
+    xy.put("y",userdao.getY(bdid));
+    float x,y;
+    x = Float.parseFloat(xy.get("x"));
+    y = Float.parseFloat(xy.get("y"));
+         
+   %>
+   
+   
 	<script>	
 	
 		//##############################################################################
 		//지도가 처음 표시 될 곳
 		var container = document.getElementById('map');
 		var options = {
-			center: new daum.maps.LatLng(37.501574,127.040170),//DB
+			center: new daum.maps.LatLng(<%= x%>,<%= y%>),//DB
 			level: 3
 		};
 		var map = new daum.maps.Map(container, options);
@@ -29,7 +47,7 @@
 		//##############################################################################
 		//마커 생성하기
 		//빌딩 개수 파악해서 주변 마커 찍기
-		var markerPosition  = new kakao.maps.LatLng(37.501574,127.040170); 
+		var markerPosition  = new kakao.maps.LatLng(<%= x%>,<%= y%>); 
 		
 		var marker = new kakao.maps.Marker({
 		    position: markerPosition

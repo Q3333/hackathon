@@ -114,7 +114,7 @@
           <div class="carousel-caption">
             <h2><strong>당신의 상가에</strong></h2>
             <h3><strong>투표하세요!</strong></h3>
-            <a href="#"><strong>투표하기</strong></a>
+            <a action="serveces-1"><strong>투표하기</strong></a>
         </div>
       </div>
 
@@ -159,12 +159,12 @@
 	  document.form1.submit();
   }
   </script>
-  <form name ="form1"method="get" action="blog-details.jsp">
+  <form name ="form1"method="get" action="blog-details_vote.jsp">
 	  <div class="col-md-4">
 	    <div class="causes">
 	      <div class="causes-img">
 	      <input type="hidden" name="hoho" value="gogogo"/>
-	        <a >
+	        <a href="blog-details_vote.jsp">
 	            <img src="./img/index/상가4.jpg" onclick="onClick()" alt="onClick()" name = "imgvalue" value ="value">
 	          </a>
 	      </div>
@@ -182,7 +182,7 @@
 	      <div class="causes-content">
 	        <h3><a onclick="onClick()">[강남] 역삼역 2번출구 500m</a></h3>
 	        <p>수요조사 마감일까지 3일!</p>
-	        <a href="blog-details.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+	        <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
 	      </div>
 	    </div>
 	  </div>
@@ -193,7 +193,7 @@
   <div class="col-md-4">
     <div class="causes">
       <div class="causes-img">
-        <a href="blog-details.jsp">
+        <a href="blog-details_vote.jsp">
             <img src="./img/index/상가3.jpg" alt="">
           </a>
       </div>
@@ -209,7 +209,7 @@
         </div>
       </div>
       <div class="causes-content">
-        <h3><a href="blog-details.jsp">[강남] 강남역 4번출구 200m</a></h3>
+        <h3><a href="blog-details_vote.jsp">[강남] 강남역 4번출구 200m</a></h3>
         <p>수요조사 마감일까지 5일!</p>
         <a href="blog-details.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
       </div>
@@ -221,7 +221,7 @@
   <div class="col-md-4">
     <div class="causes">
       <div class="causes-img">
-        <a href="blog-details.jsp">
+        <a href="blog-details_vote.jsp">
           <img src="./img/index/상가5.jpg" alt="">
         </a>
       </div>
@@ -237,9 +237,9 @@
         </div>
       </div>
       <div class="causes-content">
-        <h3><a href="blog-details.jsp">[종로] 종각역 6번출구 700m</a></h3>
+        <h3><a href="blog-details_vote.jsp">[종로] 종각역 6번출구 700m</a></h3>
         <p>수요조사 마감일까지 1주일!</p>
-        <a href="blog-details.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+        <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
       </div>
     </div>
   </div>
@@ -257,7 +257,7 @@
   <div class="col-md-4">
     <div class="causes">
       <div class="causes-img">
-        <a href="blog-details.jsp">
+        <a href="blog-details_fund.jsp">
             <img src="./img/index/상가4.jpg" alt="">
           </a>
       </div>
@@ -273,9 +273,9 @@
         </div>
       </div>
       <div class="causes-content">
-        <h3><a href="blog-details.jsp">겉바속촉의 극치. 튀김 카스테라에 아메리카노 한잔!</a></h3>
+        <h3><a href="blog-details_fund.jsp">겉바속촉의 극치. 튀김 카스테라에 아메리카노 한잔!</a></h3>
         <p>서울시 중랑구 면목동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7일 남음</p>
-        <a href="blog-details.jsp" class="primary-button causes-donate">후원 바로가기</a>
+        <a href="blog-details_fund.jsp" class="primary-button causes-donate">후원 바로가기</a>
       </div>
     </div>
   </div>
@@ -285,7 +285,7 @@
   <div class="col-md-4">
     <div class="causes">
       <div class="causes-img">
-        <a href="blog-details.jsp">
+        <a href="blog-details_fund.jsp">
             <img src="./img/index/상가3.jpg" alt="">
           </a>
       </div>
@@ -301,9 +301,9 @@
         </div>
       </div>
       <div class="causes-content">
-        <h3><a href="blog-details.jsp">365일 24시간 PC방! 말도 안되는 가격으로 최신 컴퓨터를! </a></h3>
+        <h3><a href="blog-details_fund.jsp">365일 24시간 PC방! 말도 안되는 가격으로 최신 컴퓨터를! </a></h3>
         <p>수원시 영통구 매탄1동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5일 남음</p>
-        <a href="blog-details.jsp" class="primary-button causes-donate">후원 바로가기</a>
+        <a href="blog-details_fund.jsp" class="primary-button causes-donate">후원 바로가기</a>
       </div>
     </div>
   </div>
@@ -313,7 +313,7 @@
   <div class="col-md-4">
     <div class="causes">
       <div class="causes-img">
-        <a href="blog-details.jsp">
+        <a href="blog-details_fund.jsp">
           <img src="./img/index/상가5.jpg" alt="">
         </a>
       </div>
@@ -329,7 +329,7 @@
         </div>
       </div>
       <div class="causes-content">
-        <h3><a href="blog-details.jsp">전주에서 갓 올라온 고랭지 고구마 초코파이!</a></h3>
+        <h3><a href="blog-details_fund.jsp">전주에서 갓 올라온 고랭지 고구마 초코파이!</a></h3>
         <p>서울시 강남구 개포동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8일 남음</p>
         <a href="blog-details.jsp" class="primary-button causes-donate">후원 바로가기</a>
       </div>

@@ -44,12 +44,12 @@ public class UserDao {
 						return 0;//
 					}
 				}
-				return -1;//���̵� ���°��
+				return -1;//占쏙옙占싱듸옙 占쏙옙占승곤옙占�
 			}
 			catch(Exception e) {
 				e.printStackTrace();
 			}
-			return -2;//��񿬰� ����
+			return -2;//占쏙옙澍О占� 占쏙옙占쏙옙
 	}
 	public int join(int selected,String[] attribute,String[] userinfo) {
 		rsint=0;
@@ -77,7 +77,7 @@ public class UserDao {
 				  }
 				rsint = pstmt.executeUpdate();
 				if(rsint>0) {
-					return 1;//�������� �� 1
+					return 1;//占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙 1
 				}
 			}
 			catch(Exception e) {
@@ -105,7 +105,7 @@ public class UserDao {
 				 
 				rsint = pstmt.executeUpdate();
 				if(rsint>0) {
-					return 1;//�������� �� 1
+					return 1;//占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙 1
 				}
 			}
 			catch(Exception e) {
@@ -144,7 +144,7 @@ public class UserDao {
 		return 0;
 	}
 	
-public String marketResult(String address){//리턴값 알맞게 변경하기
+public String marketResult(String address){//由ы꽩媛� �븣留욊쾶 蹂�寃쏀븯湲�
 		
 		String sql = "select count(*) from marketResearch where trdar_cd_nm = ?";
 		try {
@@ -183,7 +183,41 @@ public String getAddress(String bdId) {
 }
 //public String[] getPosition
 
+public String getX(String bdId) { //X좌표 가져오기
+	   String x="";
+	   String sql = "select location_x from building where bdid=?";
+	   try {
+	      pstmt = conn.prepareStatement(sql);
+	      pstmt.setString(1, bdId);
+	      rs = pstmt.executeQuery();
+	      
+	      if(rs.next()) {
+	         x = rs.getString(1);
+	      }
+	   }
+	   catch(Exception e) {
+	      System.out.println(e.getMessage());
+	   }
+	   return x;
+	}
 
+	public String getY(String bdId) { //Y좌표 가져오기
+	   String y="";
+	   String sql = "select location_y from building where bdid=?";
+	   try {
+	      pstmt = conn.prepareStatement(sql);
+	      pstmt.setString(1, bdId);
+	      rs = pstmt.executeQuery();
+	      
+	      if(rs.next()) {
+	         y = rs.getString(1);
+	      }
+	   }
+	   catch(Exception e) {
+	      System.out.println(e.getMessage());
+	   }
+	   return y;
+	}
 
 
 

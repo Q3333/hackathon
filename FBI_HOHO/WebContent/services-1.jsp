@@ -227,7 +227,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_vote.jsp">
                   <img src="./img/index/상가4.jpg" alt="">
                 </a>
             </div>
@@ -243,9 +243,9 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">[강남] 역삼역 2번출구 500m</a></h3>
+              <h3><a href="blog-details_vote.jsp">[강남] 역삼역 2번출구 500m</a></h3>
               <p>수요조사 마감일까지 3일!</p>
-              <a href="single-cause.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
         </div>
@@ -255,7 +255,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_vote.jsp">
                   <img src="./img/index/상가3.jpg" alt="">
                 </a>
             </div>
@@ -271,9 +271,9 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">[강남] 강남역 4번출구 200m</a></h3>
+              <h3><a href="blog-details_vote.jsp">[강남] 강남역 4번출구 200m</a></h3>
               <p>수요조사 마감일까지 5일!</p>
-              <a href="single-cause.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
         </div>
@@ -283,7 +283,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가5.jpg" alt="">
               </a>
             </div>
@@ -299,9 +299,9 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">[종로] 종각역 6번출구 700m</a></h3>
+              <h3><a href="blog-details_vote.jsp">[종로] 종각역 6번출구 700m</a></h3>
               <p>수요조사 마감일까지 1주일!</p>
-              <a href="single-cause.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
         </div>
@@ -313,7 +313,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가6.jpg" alt="">
               </a>
             </div>
@@ -329,9 +329,9 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">[강남] 선릉역 4번출구 200m</a></h3>
+              <h3><a href="blog-details_vote.jsp">[강남] 선릉역 4번출구 200m</a></h3>
               <p>수요조사 마감일까지 6일!</p>
-              <a href="single-cause.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
         </div>
@@ -341,7 +341,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가7.jpg" alt="">
               </a>
             </div>
@@ -357,9 +357,9 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">[종로] 종로2가 삼선교</a></h3>
+              <h3><a href="blog-details_vote.jsp">[종로] 종로2가 삼선교</a></h3>
               <p>수요조사 마감일까지 2주일!</p>
-              <a href="single-cause.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
         </div>
@@ -369,7 +369,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가3.jpg" alt="">
               </a>
             </div>
@@ -385,9 +385,9 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">[시청] 광화문역 4번출구 50m</a></h3>
+              <h3><a href="blog-details_vote.jsp">[시청] 광화문역 4번출구 50m</a></h3>
               <p>수요조사 마감일까지 3일!</p>
-              <a href="single-cause.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
         </div>
@@ -423,12 +423,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가3.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">꿈을 담은 빵</a></h3>
+              <h3><a href="blog-details_vote.jsp">꿈을 담은 빵</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 2019년 6월 30일 후원 시작!</li>
                 <li><i class="fa fa-map-marker"></i> 서울특별시 종로구 교남동 송월길99</li>
@@ -443,12 +443,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가4.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
+              <h3><a href="blog-details_vote.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
                 <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
@@ -465,12 +465,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가5.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
+              <h3><a href="blog-details_vote.jsp">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
                 <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
@@ -485,12 +485,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가6.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
+              <h3><a href="blog-details_vote.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
                 <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>

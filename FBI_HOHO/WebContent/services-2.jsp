@@ -221,7 +221,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_fund.jsp">
                   <img src="./img/index/상가4.jpg" alt="">
                 </a>
             </div>
@@ -237,7 +237,7 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">겉바속촉의 극치. 튀김 카스테라에 아메리카노 한잔!</a></h3>
+              <h3><a href="blog-details_fund.jsp">겉바속촉의 극치. 튀김 카스테라에 아메리카노 한잔!</a></h3>
               <p>서울시 중랑구 면목동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;7일 남음</p>
               <a href="single-cause.jsp" class="primary-button causes-donate">후원 바로가기</a>
             </div>
@@ -249,7 +249,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_fund.jsp">
                   <img src="./img/index/상가3.jpg" alt="">
                 </a>
             </div>
@@ -265,7 +265,7 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">365일 24시간 PC방! 말도 안되는 가격으로 최신 컴퓨터를! </a></h3>
+              <h3><a href="blog-details_fund.jsp">365일 24시간 PC방! 말도 안되는 가격으로 최신 컴퓨터를! </a></h3>
               <p>수원시 영통구 매탄1동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5일 남음</p>
               <a href="single-cause.jsp" class="primary-button causes-donate">후원 바로가기</a>
             </div>
@@ -277,7 +277,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_fund.jsp">
                 <img src="./img/index/상가5.jpg" alt="">
               </a>
             </div>
@@ -293,7 +293,7 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">전주에서 갓 올라온 고랭지 고구마 초코파이!</a></h3>
+              <h3><a href="blog-details_fund.jsp">전주에서 갓 올라온 고랭지 고구마 초코파이!</a></h3>
               <p>서울시 강남구 개포동 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8일 남음</p>
               <a href="single-cause.jsp" class="primary-button causes-donate">후원 바로가기</a>
             </div>
@@ -307,7 +307,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_fund.jsp">
                 <img src="./img/index/상가6.jpg" alt="">
               </a>
             </div>
@@ -323,7 +323,7 @@
               </div>
             </div>
             <div class="causes-content">
-              <h3><a href="single-cause.jsp">우리집 막내 걱정없이 여행다녀오자! 믿고 맡기는 애견호텔</a></h3>
+              <h3><a href="blog-details_fund.jsp">우리집 막내 걱정없이 여행다녀오자! 믿고 맡기는 애견호텔</a></h3>
               <p>경기도 고양시 일산동구 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;8일 남음</p>
               
               <a href="single-cause.jsp" class="primary-button causes-donate">후원 바로가기</a>
@@ -336,7 +336,7 @@
         <div class="col-md-4">
           <div class="causes">
             <div class="causes-img">
-              <a href="single-cause.jsp">
+              <a href="blog-details_fund.jsp">
                 <img src="./img/index/상가7.jpg" alt="">
               </a>
             </div>
