@@ -51,12 +51,12 @@ if(select == 1){
 	result=userdao.join(1,attribute,userinfo);
 	if(result>0){
 		out.println("<script>alert('창업자 가입 성공')");
-		out.println("location.href='login.jsp'");
+		//out.println("location.href='login.jsp'");
 		out.println("</script>");
 	}
 	else if(result==0){
 		out.println("<script type='text/javascript'>alert('창업자 가입 실패')");
-		out.println("history.back()</script>");
+		//out.println("history.back()</script>");
 	}
 	
 }
@@ -68,13 +68,13 @@ else if(select ==2){
 	if(result>0){
 		out.println("<script>");
 		out.println("alert('일반사용자 가입 성공')");
-		out.println("location.href='login.jsp'");
+		//out.println("location.href='login.jsp'");
 		out.println("</script>");
 	
 	}
 	else if(result==0){
 		out.println("<script>alert('일반사용자 가입 실패')");
-		out.println("history.back()</script>");
+		//out.println("history.back()</script>");
 	}
 }
 %>
