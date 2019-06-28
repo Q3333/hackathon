@@ -117,13 +117,10 @@ public class UserDao {
 	}
 	public int insert_building_info(String[] buildingInfo) {
 
-		
-		
 		int rsint = 0;
 		String sql = "insert into building values(?,?,?,null,null,?,?,?,?,null,null,'N',?)";
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
 			pstmt.setString(1, buildingInfo[0]);
 			pstmt.setString(2, buildingInfo[1]);
 			pstmt.setString(3, buildingInfo[2]);

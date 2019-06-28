@@ -65,7 +65,7 @@ function moveJoin(){
         </label>
     </div>
 </form>
-<form name="form1" method="get" action="SelectJoin.jsp">
+<form name="form1" method="get" action="Login/SelectJoin.jsp">
 <input type="hidden" name="select" value="1"/>
 <input type="button" value="회원가입" onclick="moveJoin()">
 </form>
