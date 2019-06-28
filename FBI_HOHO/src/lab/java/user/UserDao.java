@@ -5,7 +5,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Properties;
 
 public class UserDao {
@@ -16,10 +19,10 @@ public class UserDao {
 	ResultSet rs;
 	int rsint;
 	
-
+	
 	public UserDao(){
 		try {
-			prop.load(new FileInputStream("F:/IT/JAVA/workspace/FBI_HOHO/DBINFO.properties"));
+			prop.load(new FileInputStream("C:/Users/novem/workspace/FBI_HOHO/DBINFO.properties"));
 			Class.forName(prop.getProperty("driver"));
 			conn=DriverManager.getConnection(
 			prop.getProperty("url"),
@@ -61,7 +64,6 @@ public class UserDao {
 					arrtsql+=",";
 				}
 			}
-			
 			
 			String sql = "insert into userinfo("+arrtsql+")\n"
 					+ "values(?,?,?,?,?,?,?,?)";
@@ -115,10 +117,7 @@ public class UserDao {
 		}
 		return 0;
 	}
-	public int insert_building_info(String[] buildingInfo) {
-
-		
-		
+	public int insert_building_info(String[] buildingInfo) {	
 		int rsint = 0;
 		String sql = "insert into building values(?,?,?,null,null,?,?,?,?,null,null,'N',?)";
 		try {
@@ -181,43 +180,38 @@ public String getAddress(String bdId) {
 	}	
 	return address;
 }
+
+
+	
+	public HashMap<String,HashMap<String,String>> getXY() {
+		   
+		   HashMap<String,HashMap<String,String>> map = new HashMap<String,HashMap<String,String>>();
+		   HashMap<String,String> child = new HashMap<String,String>();
+		   
+		   String sql1 = "select bdid, location_x, location_y, fundingyn from building";
+		   try {
+			 stmt=conn.createStatement();
+			 rs=stmt.executeQuery(sql1);			 
+			 while (rs.next()) {
+				 child.put("x", rs.getString("location_y"));
+				 child.put("y", rs.getString("location_x"));
+				 child.put("z", rs.getString("fundingyn"));
+				 map.put(rs.getString("bdid"), (HashMap<String, String>)child.clone());
+			 }
+			 
+		   } catch (Exception e) {
+			  System.out.println(e.getMessage());
+		   }
+		   return map;   
+	} 
+	
+
+	
+	
 //public String[] getPosition
+	
 
-public String getX(String bdId) { //X좌표 가져오기
-	   String x="";
-	   String sql = "select location_x from building where bdid=?";
-	   try {
-	      pstmt = conn.prepareStatement(sql);
-	      pstmt.setString(1, bdId);
-	      rs = pstmt.executeQuery();
-	      
-	      if(rs.next()) {
-	         x = rs.getString(1);
-	      }
-	   }
-	   catch(Exception e) {
-	      System.out.println(e.getMessage());
-	   }
-	   return x;
-	}
 
-	public String getY(String bdId) { //Y좌표 가져오기
-	   String y="";
-	   String sql = "select location_y from building where bdid=?";
-	   try {
-	      pstmt = conn.prepareStatement(sql);
-	      pstmt.setString(1, bdId);
-	      rs = pstmt.executeQuery();
-	      
-	      if(rs.next()) {
-	         y = rs.getString(1);
-	      }
-	   }
-	   catch(Exception e) {
-	      System.out.println(e.getMessage());
-	   }
-	   return y;
-	}
 
 
 
