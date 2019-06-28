@@ -5,7 +5,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 public class UserDao {
@@ -145,7 +149,7 @@ public class UserDao {
 	}
 	
 public String marketResult(String address){//由ы꽩媛� �븣留욊쾶 蹂�寃쏀븯湲�
-		
+		String add = null;
 		String sql = "select count(*) from marketResearch where trdar_cd_nm = ?";
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -154,7 +158,7 @@ public String marketResult(String address){//由ы꽩媛� �븣留욊쾶 蹂�
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				System.out.println(rs.getString(1));
+				add = rs.getString(1);
 			}
 		}
 		catch(Exception e) {
@@ -162,7 +166,7 @@ public String marketResult(String address){//由ы꽩媛� �븣留욊쾶 蹂�
 		}
 		
 		
-		return null;
+		return add;
 	}
 public String getAddress(String bdId) {
 	String address = "";
@@ -218,7 +222,113 @@ public String getX(String bdId) { //X좌표 가져오기
 	   }
 	   return y;
 	}
+	
+// 원호형 코드 start
+	
+	public String getAdd(String bdid) {
+		String add;
+		addChange change = new addChange();
+		
+		
+		add = getAddress(bdid);
+		add = change.changeAdd(add);
+		
 
+		return add;
+	}
+	
+	public HashMap<Integer,HashMap<String,String>> getXY() {
+		   
+		   HashMap<Integer,HashMap<String,String>> map = new HashMap<Integer,HashMap<String,String>>();
+		   HashMap<String,String> result = new HashMap<String,String>();
+		   
+		   String sql1 = "select * from building where fundingYN = 'Y'";
+		   String sql2 = "select * from building where fundingYN = 'N'";
+		   
+		   try {
+		      
+		      stmt = conn.createStatement();
+		      rs = stmt.executeQuery(sql1);
+		      ResultSetMetaData rsmt= rs.getMetaData();
+		      int number = 1 ;
+		      while(rs.next()) {
+		         
+		         for(int i = 0;i<rsmt.getColumnCount();i++) {
+		            result.put(rsmt.getColumnName(i+1),rs.getString(rsmt.getColumnName(i+1)));
+		         }
+		               
+		         map.put(number,(HashMap<String, String>) result.clone());
+		                  
+		         number++;
+		         if(number==4) {
+		            break;
+		         }
+		      }
+		      
+		      stmt = conn.createStatement();
+		      rs = stmt.executeQuery(sql2);
+		      while(rs.next()) {
+		         
+		         for(int p = 0;p<rsmt.getColumnCount();p++) {
+		            result.put(rsmt.getColumnName(p+1),rs.getString(rsmt.getColumnName(p+1)));
+		         
+		         }
+		         map.put(number, (HashMap<String, String>) result.clone());
+		         number++;
+		         
+		         if(number==7) {
+		            break;
+		         }
+		      }
+		   }
+		   catch (Exception e) {
+		      System.out.println(e.getMessage());
+		   }
+		   return map;
+		   }
+
+		   public HashMap<String, String> getCategory(String name) {
+		      
+		      HashMap<String,Integer> list = new HashMap<String, Integer>();
+		      
+		      try {
+		      String sql = "select userid from userinfo";
+		      stmt = conn.createStatement();
+		      rs = stmt.executeQuery(sql);
+		      
+		      while(rs.next()) {
+		         System.out.println(rs.getString("userid"));
+		      }
+		      
+		      String dessert_sql = "select * from dessert where buildnum=?";
+		      pstmt = conn.prepareStatement(dessert_sql);
+		      
+		      String westernfood_sql="select * from westernfood where buildnum =?";
+		      pstmt = conn.prepareStatement(westernfood_sql);
+		      
+		      String store_sql="select * from store where buildnum = ?";
+		      pstmt = conn.prepareStatement(store_sql);
+		      
+
+		      String entertaiment_sql="select * from entertaiment where buildnum = ?";
+		      pstmt = conn.prepareStatement(entertaiment_sql);
+		      
+		      String lodgment_sql ="select * from lodgment where buildnum=?";
+		      pstmt = conn.prepareStatement(lodgment_sql);
+		      
+		      }
+		      catch(Exception e) {
+		         System.out.println(e.getMessage());
+		      }
+		      return null;
+		      
+		   }
+	
+	
+		   
+		   // 원호형코드 end 
+		   
+		   
 	public int getBuildingNum() {
 		String sql = "select count(*) from building";
 		try {
@@ -260,10 +370,11 @@ public String getX(String bdId) { //X좌표 가져오기
 	
 	public double getStarAct(String buu) {
 		double act = 0;
-		String sql = "select ACTVTY_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		//String sql = "select ACTVTY_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		String sql = "select avg(decode(ACTVTY_IDX_VALUE,'null',NULL,ACTVTY_IDX_VALUE))from MARKETRESEARCH where TRDAR_CD_NM like ?";
 		try {		
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,buu);
+			pstmt.setString(1,buu+"%");
 			rs = pstmt.executeQuery();		
 			if(rs.next()) {
 				act = Double.parseDouble(rs.getString(1));
@@ -277,10 +388,10 @@ public String getX(String bdId) { //X좌표 가져오기
 	
 	public double getStarStb(String buu) {
 		double act = 0;
-		String sql = "select STABLE_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		String sql = "select avg(decode(STABLE_IDX_VALUE,'null',NULL,STABLE_IDX_VALUE))from MARKETRESEARCH where TRDAR_CD_NM like ?";
 		try {		
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,buu);
+			pstmt.setString(1,buu+"%");
 			rs = pstmt.executeQuery();		
 			if(rs.next()) {			
 				act = Double.parseDouble(rs.getString(1));
@@ -294,10 +405,11 @@ public String getX(String bdId) { //X좌표 가져오기
 	
 	public double getStarGrw(String buu) {
 		double act = 0;
-		String sql = "select GROWTH_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		String sql = "select avg(decode(GROWTH_IDX_VALUE,'null',NULL,GROWTH_IDX_VALUE))from MARKETRESEARCH where TRDAR_CD_NM like ?";
+		
 		try {		
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,buu);
+			pstmt.setString(1,buu+"%");
 			rs = pstmt.executeQuery();		
 			if(rs.next()) {			
 				act = Double.parseDouble(rs.getString(1));
@@ -311,10 +423,11 @@ public String getX(String bdId) { //X좌표 가져오기
 
 	public double getStarOvp(String buu) {
 		double act = 0;
-		String sql = "select OVPOP_IDEX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
+		String sql = "select avg(decode(OVPOP_IDEX_VALUE,'null',NULL,OVPOP_IDEX_VALUE))from MARKETRESEARCH where TRDAR_CD_NM like ?";
+		
 		try {		
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,buu);
+			pstmt.setString(1,buu+"%");
 			rs = pstmt.executeQuery();		
 			if(rs.next()) {			
 				act = Double.parseDouble(rs.getString(1));

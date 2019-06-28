@@ -1,3 +1,4 @@
+<%@page import="lab.java.user.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -21,6 +22,23 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
+  <%
+  
+UserDao a = new UserDao();
+String BID = "KBM003657";
+String MID = "1498032";
+String pic = a.getBuildingPic(BID);
+double starAct = a.getStarAct(MID); //숫자 대신 마켓아이디
+double starStb = a.getStarStb(MID);
+double starGrw = a.getStarGrw(MID);
+double starOvp = a.getStarOvp(MID);
+String BD_INFO = a.getBdInfo(BID);
+String COMT = a.getBdComt(BID);
+String TITLE = a.getBdTitle(BID);
+String TA_Dtl = a.getTaDetail(BID);
+%>
+  
+  
   <style>
 	.h_graph ul{margin:0 50px 0 50px;padding:1px 0 0 0;border:1px solid #ddd;border-top:0;border-right:0;font-size:11px;list-style:none}
     .h_graph li{position:relative;margin:10px 0;vertical-align:top;white-space:nowrap}
@@ -32,6 +50,9 @@
     .score2{ background: url('img/star.png')0px 0px; width: 80%; height: 40px; padding 0;  }
     .score3{ background: url('img/star.png')0px 0px; width: 78%; height: 40px; padding 0;  }
     .score4{ background: url('img/star.png')0px 0px; width: 60%; height: 40px; padding 0;  }
+  #title{
+    	margin-top: -35px;
+    }
   </style>
 </head>
 <body>
@@ -96,18 +117,21 @@
 				<div class="col-lg-8 posts-list">
 					<div class="single-post row">
 						<div class="col-lg-12">
+						<h3 id = 'title'>
+								<%=TITLE %>
+							</h3>
 							<div class="feature-img">
-								<img class="img-fluid" src="img/sale/feature-img1.jpg" alt="">
+								<img class="img-fluid" src=<%=pic %> alt="">
 							</div>
 							<div class="quotes">
-								게시글 제목 자리입니다.  fontsize up 해야 할 듯 하죠?
+								<%=COMT %>
 							</div>
 						</div>
 					<h3>투표 현황 (틀은 잡았지만 실시간이라서 js/jquery 이용해야할듯해용)</h3>
 					<div class="col-lg-12">
 					<div class="h_graph">
 				        <ul>
-				            <li><span class="g_term">애견카페</span><span class="g_bar" style="width:56%"><span>56%</span></span></li>
+				            <li><span class="g_term">디저트</span><span class="g_bar" style="width:56%"><span>56%</span></span></li>
 				            <li><span class="g_term">헬스장</span><span class="g_bar" style="width:14%"><span>14%</span></span></li>
 				            <li><span class="g_term">중식</span><span class="g_bar" style="width:10%"><span>10%</span></span></li>
 				            <li><span class="g_term">기타</span><span class="g_bar" style="width:20%"><span>20%</span></span></li>
@@ -119,9 +143,7 @@
 											
 				<div class="col-lg-12">
 					<div class="quotes">
-															MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money
-															on boot camp when you can get the MCSE study materials yourself at a fraction of the camp
-															price. However, who has the willpower to actually sit through a self-imposed MCSE training.
+						※투표는 계정당 1회 가능합니다.
 					</div>
 				</div>
 				<div class="row">
@@ -326,11 +348,9 @@
 											<aside class="single_sidebar_widget author_widget">
 													<img class="author_img rounded-circle" src="img/blog/author.png" alt="">
 													<h4>해당 매물 상세정보</h4>
-													<p>Senior blog writer</p>
+													<!-- <p>Senior blog writer </p> -->
 													<div class="social_icon"> </div>
-													<p>매물 정보 내용은 어떻게 입력하지?amps have its supporters andit sdetractors. Some people do not understand why you should
-															have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits
-															detractors.
+													<p><%=BD_INFO %>
 													</p>
 													<div class="br"></div>
 											</aside>

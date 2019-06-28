@@ -24,13 +24,15 @@
   <link rel="stylesheet" href="css/style.css">
 <%
 UserDao a = new UserDao();
-String BID = "KBM003657";
-String MID = "1498032";
+
+String BID = request.getParameter("BDID");
+//String BID = "KBM003657";
+String AreaName = a.getAdd(BID);
 String pic = a.getBuildingPic(BID);
-double starAct = a.getStarAct(MID); //숫자 대신 마켓아이디
-double starStb = a.getStarStb(MID);
-double starGrw = a.getStarGrw(MID);
-double starOvp = a.getStarOvp(MID);
+double starAct = a.getStarAct(AreaName); //숫자 대신 마켓아이디
+double starStb = a.getStarStb(AreaName);
+double starGrw = a.getStarGrw(AreaName);
+double starOvp = a.getStarOvp(AreaName);
 String BD_INFO = a.getBdInfo(BID);
 String COMT = a.getBdComt(BID);
 String TITLE = a.getBdTitle(BID);
