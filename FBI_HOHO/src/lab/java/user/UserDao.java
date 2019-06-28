@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.Set;
 
 public class UserDao {
 	Properties prop = new Properties();
@@ -287,44 +288,150 @@ public String getX(String bdId) { //X좌표 가져오기
 		   return map;
 		   }
 
-		   public HashMap<String, String> getCategory(String name) {
-		      
-		      HashMap<String,Integer> list = new HashMap<String, Integer>();
-		      
-		      try {
-		      String sql = "select userid from userinfo";
-		      stmt = conn.createStatement();
-		      rs = stmt.executeQuery(sql);
-		      
-		      while(rs.next()) {
-		         System.out.println(rs.getString("userid"));
-		      }
-		      
-		      String dessert_sql = "select * from dessert where buildnum=?";
-		      pstmt = conn.prepareStatement(dessert_sql);
-		      
-		      String westernfood_sql="select * from westernfood where buildnum =?";
-		      pstmt = conn.prepareStatement(westernfood_sql);
-		      
-		      String store_sql="select * from store where buildnum = ?";
-		      pstmt = conn.prepareStatement(store_sql);
-		      
+	public HashMap<String, Integer> getCategory(String bdid) {
+	      
+	      HashMap<String,Integer> list = new HashMap<String, Integer>();
 
-		      String entertaiment_sql="select * from entertaiment where buildnum = ?";
-		      pstmt = conn.prepareStatement(entertaiment_sql);
-		      
-		      String lodgment_sql ="select * from lodgment where buildnum=?";
-		      pstmt = conn.prepareStatement(lodgment_sql);
-		      
-		      }
-		      catch(Exception e) {
-		         System.out.println(e.getMessage());
-		      }
-		      return null;
-		      
-		   }
+	      
+	      try {
+	         
+	      String dessert_sql = "select * from dessert where buildnum = ?";
+	      pstmt = conn.prepareStatement(dessert_sql);
+	      pstmt.setString(1, bdid);
+	      rs = pstmt.executeQuery();
+	      ResultSetMetaData rsmt= rs.getMetaData();
+	      
+
+	      if(rs.next()) {
+	            
+	         for(int i = 2;i<rsmt.getColumnCount();i++) {
+	         list.put(rsmt.getColumnName(i+1),rs.getInt(rsmt.getColumnName(i+1))); 
+	         }}
+	      
+	      String westernfood_sql="select * from westernfood where buildnum =?";
+	      pstmt =conn.prepareStatement(westernfood_sql);
+	      
+	      pstmt.setString(1, bdid);
+	      rs = pstmt.executeQuery();
+	      rsmt= rs.getMetaData();
+	      
+	      if(rs.next()) {
+	         
+	         for(int i = 2;i<rsmt.getColumnCount();i++) {
+	         list.put(rsmt.getColumnName(i+1),rs.getInt(rsmt.getColumnName(i+1))); 
+	         }
+	         }
+	          
+	          
+
+	      String store_sql="select * from store where buildnum = ?";
+	      pstmt =   conn.prepareStatement(store_sql);
+
+	      pstmt.setString(1, bdid);
+	      rs = pstmt.executeQuery();
+	      rsmt= rs.getMetaData();
+	      
+	      if(rs.next()) {
+	         
+	         for(int i = 2;i<rsmt.getColumnCount();i++) {
+	         list.put(rsmt.getColumnName(i+1),rs.getInt(rsmt.getColumnName(i+1))); 
+	         }
+	      }
+	       
+	      String entertaiment_sql="select * from entertaiment where buildnum = ?";
+	      pstmt = conn.prepareStatement(entertaiment_sql);
+	      
+	      pstmt.setString(1, bdid);
+	      rs = pstmt.executeQuery();
+	      rsmt= rs.getMetaData();
+	      
+	      if(rs.next()) {
+	         
+	         for(int i = 2;i<rsmt.getColumnCount();i++) {
+	         list.put(rsmt.getColumnName(i+1),rs.getInt(rsmt.getColumnName(i+1))); 
+	         }
+	         }
+	          
+	      String lodgment_sql ="select * from lodgment where buildnum=?"; 
+	      pstmt =conn.prepareStatement(lodgment_sql);
+	      
+	      pstmt.setString(1, bdid);
+	      rs = pstmt.executeQuery();
+	      rsmt= rs.getMetaData();
+	      
+	      if(rs.next()) {
+	         
+	         for(int i = 2;i<rsmt.getColumnCount();i++) {
+	         list.put(rsmt.getColumnName(i+1),rs.getInt(rsmt.getColumnName(i+1))); 
+	         }
+	         }
+	         
+	      }
+	      catch(Exception e) {
+	         System.out.println(e.getMessage());
+	      }
+	      
+
+	      return list;
+
+	   }
+	   
+	public HashMap<Integer,String> vote(HashMap<String,Integer> list){
+	      
+
+	      double sum = 0;
+	      int tmp = 0;
+	      int i = 0;
+	      
+	      
+	      Set<String> keyset = list.keySet();
+	      int sort[]=new int[keyset.size()];
+	      
+
+	       for(String pp : keyset) { 
+	             sum += list.get(pp);
+	             sort[i] = list.get(pp);
+	             i++;
+	       }
+	      
+
+	       for(i = 0;i<sort.length;i++) {
+	          for(int j= 0;j<sort.length-1;j++) {
+	             if(sort[j]<sort[j+1]) {
+	                tmp = sort[j+1];
+	                sort[j+1] = sort[j];
+	                sort[j] = tmp;
+	             }
+	          }
+	       }
+
+	       String first[] = new String[5];
+	       
+	       for(i = 0;i<5;i++) {
+	          
+	         for(String pp:keyset) {
+	            if(sort[i]==list.get(pp)) {
+	               first[i]=pp;
+	            }
+	         }
+	       }
+	       int firstV[] = new int[5];
+	       
+	       for(i=0;i<5;i++) {
+	          firstV[i] = (int)((list.get(first[i])/sum)*100);
+	       }
+	       HashMap<Integer,String> listMap = new HashMap<Integer,String>();
+	      
+	       for(i = 1;i<=5;i++) {
+	         listMap.put(i*2,firstV[i-1]+"");
+	         listMap.put((i*2)-1,first[i-1]);
+	      }
+	       return listMap;
+	   }
 	
 	
+		   
+		   
 		   
 		   // 원호형코드 end 
 		   
@@ -372,6 +479,7 @@ public String getX(String bdId) { //X좌표 가져오기
 		double act = 0;
 		//String sql = "select ACTVTY_IDX_VALUE from MARKETRESEARCH where MARKET_IDX=?";
 		String sql = "select avg(decode(ACTVTY_IDX_VALUE,'null',NULL,ACTVTY_IDX_VALUE))from MARKETRESEARCH where TRDAR_CD_NM like ?";
+		if(buu!=null) {
 		try {		
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1,buu+"%");
@@ -383,6 +491,7 @@ public String getX(String bdId) { //X좌표 가져오기
 		catch(Exception e) {
 			System.out.println(e.getMessage());
 		}	
+	}
 		return act;
 	}
 	
@@ -518,7 +627,105 @@ public String getX(String bdId) { //X좌표 가져오기
 		}	
 		return abc;
 	}
-
 	
+	public String getVoteDtl(String buu) {
+		String abc ="";
+		String sql = "select VOTE_DETAIL from building where bdid=?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,buu);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				abc = rs.getString(1);
+				}
+			}
+		
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		return abc;
+	}
+	
+	public void V_DESSERT(String category,String BID) {
+		//String abc ="";
+		String sql = "UPDATE DESSERT SET "+category+"="+category+"+1 WHERE BUILDNUM = ?";
+		try {
+			
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,BID);
+			rsint = pstmt.executeUpdate();
+			
 
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		
+	}
+	
+	public void V_WESTERNFOOD(String category,String BID) {
+		String sql = "UPDATE WESTERNFOOD SET "+category+"="+category+"+1 WHERE BUILDNUM = ?";
+		
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,BID);
+			rsint = pstmt.executeUpdate();
+			
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		
+	}
+	
+	public void V_STORE(String category,String BID) {
+		//String abc ="";
+		String sql = "UPDATE STORE SET "+category+"="+category+"+1 WHERE BUILDNUM = ?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,BID);
+			rsint = pstmt.executeUpdate();
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		
+	}
+	
+	public void V_ENTERTAIMENT(String category,String BID) {
+		//String abc ="";
+		String sql = "UPDATE ENTERTAIMENT SET "+category+"="+category+"+1 WHERE BUILDNUM = ?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,BID);
+			rsint = pstmt.executeUpdate();
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		
+	}
+	
+	public void V_LODGMENT(String category,String BID) {
+		//String abc ="";
+		String sql = "UPDATE LODGMENT SET "+category+"="+category+"+1 WHERE BUILDNUM = ?";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,BID);
+			rsint = pstmt.executeUpdate();
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+		}	
+		
+	}
+	
+	
 }

@@ -232,7 +232,7 @@
 
   <!-- causes -->
 
-  <form name ="form1" method="get" action="blog-details_vote.jsp">
+  <form name ="form1" method="get" action="blog-details.jsp">
      <div class="col-md-4">
        <div class="causes">
          <div class="causes-img">
@@ -263,7 +263,7 @@
   <!-- /causes -->
 
   <!-- causes -->
-  <form name ="form2" method="get" action="blog-details_vote.jsp">
+  <form name ="form2" method="get" action="blog-details.jsp">
   <input type="hidden" name="BDID" value=<%=map.get(5).get("BDID") %>  />
   <div class="col-md-4">
     <div class="causes">
@@ -333,7 +333,7 @@
     <p class="sub-title">&nbsp;&nbsp;*실시간 후원현황&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
   </div>
   <!-- causes -->
-  <form name ="form4" method="get" action="blog-details_fund.jsp">
+  <form name ="form4" method="get" action="blog-details.jsp">
   <input type="hidden" name="BDID" value=<%=map.get(1).get("BDID") %>  />
   <div class="col-md-4">
     <div class="causes">
@@ -364,7 +364,7 @@
   <!-- /causes -->
 
   <!-- causes -->
-  <form name ="form5" method="get" action="blog-details_fund.jsp">
+  <form name ="form5" method="get" action="blog-details.jsp">
   <input type="hidden" name="BDID" value=<%=map.get(2).get("BDID") %>  />
   <div class="col-md-4">
     <div class="causes">
@@ -395,7 +395,7 @@
   <!-- /causes -->
 
   <!-- causes -->
-  <form name ="form6" method="get" action="blog-details_fund.jsp">
+  <form name ="form6" method="get" action="blog-details.jsp">
   <input type="hidden" name="BDID" value=<%=map.get(3).get("BDID") %>  />
   <div class="col-md-4">
     <div class="causes">

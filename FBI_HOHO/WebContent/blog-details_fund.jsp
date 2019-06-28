@@ -37,6 +37,7 @@ String BD_INFO = a.getBdInfo(BID);
 String COMT = a.getBdComt(BID);
 String TITLE = a.getBdTitle(BID);
 String TA_Dtl = a.getTaDetail(BID);
+String VOTE_DETAIL = a.getVoteDtl(BID);
 %>
 <style type="text/css">
 
@@ -130,11 +131,20 @@ clear: both;
 
 #title_star{
 	margin-top: -10px;
-	margin-left: 80px;
+	margin-left: 70px;
 }
 
 #title_star_bottom{
 
+}
+
+#TA{
+	margin-left: 30px;
+}
+
+.TA_dtl{
+	margin-top: 10px;
+	margin-left: 75px;
 }
 
 </style>
@@ -268,27 +278,9 @@ clear: both;
                               </div> -->
                               <div class="col-lg-12 mt-4">
                                   <p>
-                                      수요조사 결과 ㅁㄴㅇㅁㄴㅇ 가 ㅁㄴㅇㅁ ㄴㅇㅁ
-                                      ㅁㄴㅇㄴㅇㅁㄴ 
-
-                                      둘다 화면에서 HTML의 요소를 보여주거나 숨기는 기능을 합니다.
-                                      차이점은 숨기는 기능을 하는 hidden , none을 주었을 때
-                                      visibility는 영역은 살아있으나 안보이는 것뿐이고 display는 영역 자체가 사라집니다.
-                                      visibility: visible, hidden;
-                                      display의 속성은
-                                      display: none, inline, block, inline-block ; 가 있습니다.
+                                    <%=VOTE_DETAIL %>  
                                   </p>
-                                  <p>
-                                      수요조사 결과2 ㅁㄴㅇㅁㄴㅇ 가 ㅁㄴㅇㅁ ㄴㅇㅁ
-                                      ㅁㄴㅇㄴㅇㅁㄴ 
-
-                                      둘다 화면에서 HTML의 요소를 보여주거나 숨기는 기능을 합니다.
-                                      차이점은 숨기는 기능을 하는 hidden , none을 주었을 때
-                                      visibility는 영역은 살아있으나 안보이는 것뿐이고 display는 영역 자체가 사라집니다.
-                                      visibility: visible, hidden;
-                                      display의 속성은
-                                      display: none, inline, block, inline-block ; 가 있습니다.
-                                  </p>
+                       
                               </div>
                           </div>
                       </div>
@@ -476,6 +468,28 @@ clear: both;
                                   <a href="#" class="btn-reply text-uppercase">reply</a>
                               </div>
                           </div>
+                          
+                          <div class="comment-form">
+                      <h4>Leave a Reply</h4>
+                      <form>
+                          <div class="form-group form-inline">
+                              <div class="form-group col-lg-6 col-md-6 name">
+                                  <input type="text" class="form-control" id="name" placeholder="Enter Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Name'">
+                              </div>
+                              <div class="form-group col-lg-6 col-md-6 email">
+                                  <input type="email" class="form-control" id="email" placeholder="Enter email address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'">
+                              </div>
+                          </div>
+                          <div class="form-group">
+                              <input type="text" class="form-control" id="subject" placeholder="Subject" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Subject'">
+                          </div>
+                          <div class="form-group">
+                              <textarea class="form-control mb-10" rows="5" name="message" placeholder="Messege" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Messege'"
+                                  required=""></textarea>
+                          </div>
+                          <a href="#" class="button button-postComment">Post Comment</a>
+                      </form>
+                  </div>    
                       </div>
                   </div>
 
@@ -490,18 +504,18 @@ clear: both;
                        
                        <!-- <img class="author_img" src="img/vote_detail/graph.PNG" alt="" width = 280px;>
                         -->
-                <div class="row">
+                <div id = 'TA' class="row">
 					<h3 id = 'title_star'>상권 분석</h3>
 					<div class="col-lg-12">
-						
+						<br>
 						<div class="star"><p class="star_act"></p></div>
-						 <br><br>활성도<br>
+						 <br><br><p class = 'TA_dtl'> 활성도 </p><br>
 						 <div class="star"><p class="star_ovp"></p></div> <br>
-						<br>과밀도<br>
+						<br><p class = 'TA_dtl'> 과밀도 </p><br>
 						<div class="star"><p class="star_stb"></p></div> <br>
-						<br>안정성<br>
+						<br><p class = 'TA_dtl'> 안정성 </p><br>
 						<div class="star"><p class="star_grw"></p></div> <br>
-						<br>성장성<br>
+						<br><p class = 'TA_dtl'> 성장성 </p><br>
 						
 							
 					</div>
