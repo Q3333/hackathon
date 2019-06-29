@@ -1,3 +1,7 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="lab.java.user.UserDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,23 +23,97 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
+<%
+UserDao a = new UserDao();
+
+String BID = request.getParameter("BDID");
+//String BID = "KBM003657";
+String AreaName = a.getAdd(BID);
+String pic = a.getBuildingPic(BID);
+double starAct = a.getStarAct(AreaName); //숫자 대신 마켓아이디
+double starStb = a.getStarStb(AreaName);
+double starGrw = a.getStarGrw(AreaName);
+double starOvp = a.getStarOvp(AreaName);
+String BD_INFO = a.getBdInfo(BID);
+String COMT = a.getBdComt(BID);
+String TITLE = a.getBdTitle(BID);
+String TA_Dtl = a.getTaDetail(BID);
+
+
+HashMap<Integer,HashMap<Integer,String>> voteResult = new HashMap<Integer,HashMap<Integer,String>>();
+HashMap<Integer,String> vote = new HashMap<Integer,String>();
+HashMap<Integer,HashMap<String,String>> map = a.getXY();
+
+ 
+   vote = a.vote(a.getCategory("KBM003657"));
+   System.out.println(vote);
+   vote = a.vote(a.getCategory("KBM003652"));
+   System.out.println(vote);
+%>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+ <script>
+ <%
+ out.print("$(document).ready(function(){");
+ out.print("$('#2PYO').click(function() {");
+ out.print("var value = $('#pp> optgroup> option:selected').val();");
+ out.print("var K = value;");
+ out.print("var E = null;");
+ out.print("if(K==("커피")) E="COFFEE";");        
+      if(K==("베이커리")) E="BAKERY";");
+      if(K==("아이스크림")) {E="ICECREAM"};");
+      if(K==("한식")) {E="KRFOOD"};");  
+      if(K==("양식")) E="RESTAURANT";");
+      if(K==("중식")) E="CHIFOOD";");
+      if(K==("일식")) E="JAPFOOD";");
+      if(K==("분식")) E="SNACKBAR";");
+      if(K==("베트남 음식")) E="VIETFOOD";");
+      if(K==("고기집")) E="MEATREST";");
+      if(K==("치킨")) E="CHICKEN";");
+      if (K==("피자")) E="PIZZA";");
+      if (K==("햄버거")) E="HAMBURGER";");
+      if (K==("야식메뉴")) E="NIGHTMEAL";");         
+          
+      if (K==("편의점")) E="CONVENIENSTORE";");
+      if (K==("화장품")) E="COSMETICS";");
+      if (K==("악세사리")) E="ACCESSORY";");
+      if (K==("핸드폰 가맹점")) E="PHONE";");   
+          
+      if (K==("헬스장")) E="FITNESS";");     
+      if (K==("요가")) E="YOGA";");      
+      if (K==("당구장")) E="BILLIARD";");     
+      if (K==("스크린골프")) E="SCREENGOLF";");     
+      if (K==("마사지")) E="MASSAGE";");      
+      if (K==("네일샵")) E="NAILCARE";");      
+      if (K==("피시방")) E="PC";");      
+      if (K==("노래방")) E="KARAOKE";");            
+
+      if (K==("호텔")) E="HOTEL";");
+      if (K==("모텔")) E="MOTEL";");
+     alert(E);");
+	      %>
+	    });
+  });
+</script>
   <style>
 	.h_graph ul{margin:0 50px 0 50px;padding:1px 0 0 0;border:1px solid #ddd;border-top:0;border-right:0;font-size:11px;list-style:none}
     .h_graph li{position:relative;margin:10px 0;vertical-align:top;white-space:nowrap}
     .h_graph .g_term{position:absolute;top:0;left:-50px;width:40px;font-weight:bold;color:#767676;line-height:20px;text-align:right}
     .h_graph .g_bar{display:inline-block;position:relative;height:20px;border:1px solid #ccc;border-left:0;background:#e9e9e9}
     .h_graph .g_bar span{position:absolute;top:0;right:-50px;width:40px;color:#767676;line-height:20px}
-
     .star{ clear: both; background: url('img/star1.png') 0px 0px; float:left; width: 205px; height: 40px; padding: 0; }
-    .score1{ background: url('img/star.png')0px 0px; width: 70%; height: 40px; padding 0;  }
-    .score2{ background: url('img/star.png')0px 0px; width: 80%; height: 40px; padding 0;  }
-    .score3{ background: url('img/star.png')0px 0px; width: 78%; height: 40px; padding 0;  }
-    .score4{ background: url('img/star.png')0px 0px; width: 60%; height: 40px; padding 0;  }
-    #title{
+   
+   .star_act{ background: url('img/star.png')0px 0px; width: <%= starAct%>%; height: 40px; padding 0;  }
+    .star_stb{ background: url('img/star.png')0px 0px; width: <%= starStb%>%; height: 40px; padding 0;  }
+    .star_grw{ background: url('img/star.png')0px 0px; width: <%= starGrw%>%; height: 40px; padding 0;  }
+    .star_ovp{ background: url('img/star.png')0px 0px; width: <%= starOvp%>%; height: 40px; padding 0;  }
+  
+  
+  #title{
     	margin-top: -35px;
     }
-
-    #title_star{
+    
+     #title_star{
 	margin-top: -10px;
 	margin-left: 70px;
 	}
@@ -52,7 +130,6 @@
 		margin-top: 10px;
 		margin-left: -40px;
 	}
-
   </style>
 </head>
 <body>
@@ -84,17 +161,17 @@
 
           <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
             <ul class="nav navbar-nav menu_nav justify-content-end">
-              <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+              <li class="nav-item active"><a class="nav-link" href="index.jsp">Home</a></li> 
               <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">이용안내</a>
                 <ul class="dropdown-menu">
-                  <li class="nav-item"><a class="nav-link" href="about_startup.html">예비창업자</a></li>
-                  <li class="nav-item"><a class="nav-link" href="about_investor.html">개인후원자</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about_startup.jsp">예비창업자</a></li>
+                  <li class="nav-item"><a class="nav-link" href="about_investor.jsp">개인후원자</a></li>
                 </ul>
 							</li>
-              <li class="nav-item"><a class="nav-link" href="services-2.html">수요조사</a>
-                <li class="nav-item"><a class="nav-link" href="services-2.html">후원</a>
+              <li class="nav-item"><a class="nav-link" href="services-2.jsp">수요조사</a>
+                <li class="nav-item"><a class="nav-link" href="services-2.jsp">후원</a>
               <!-- <li class="nav-item submenu dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                   aria-expanded="false">Pages</a>
@@ -117,21 +194,21 @@
 				<div class="col-lg-8 posts-list">
 					<div class="single-post row">
 						<div class="col-lg-12">
-							<h3 id = 'title'>
-								게시글 설명 자리입니다.  fontsize up 해야 할 듯 하죠?
+						<h3 id = 'title'>
+								<%=TITLE %>
 							</h3>
 							<div class="feature-img">
-								<img class="img-fluid" src="img/sale/feature-img1.jpg" alt="">
+								<img class="img-fluid" src=<%=pic %> alt="">
 							</div>
 							<div class="quotes">
-								게시글 제목 자리입니다.  fontsize up 해야 할 듯 하죠?
+								<%=COMT %>
 							</div>
 						</div>
 					<h3>투표 현황 (틀은 잡았지만 실시간이라서 js/jquery 이용해야할듯해용)</h3>
 					<div class="col-lg-12">
 					<div class="h_graph">
 				        <ul>
-				            <li><span class="g_term">애견카페</span><span class="g_bar" style="width:56%"><span>56%</span></span></li>
+				            <li><span class="g_term">디저트</span><span class="g_bar" style="width:56%"><span>56%</span></span></li>
 				            <li><span class="g_term">헬스장</span><span class="g_bar" style="width:14%"><span>14%</span></span></li>
 				            <li><span class="g_term">중식</span><span class="g_bar" style="width:10%"><span>10%</span></span></li>
 				            <li><span class="g_term">기타</span><span class="g_bar" style="width:20%"><span>20%</span></span></li>
@@ -143,23 +220,10 @@
 											
 				<div class="col-lg-12">
 					<div class="quotes">
-															MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money
-															on boot camp when you can get the MCSE study materials yourself at a fraction of the camp
-															price. However, who has the willpower to actually sit through a self-imposed MCSE training.
+						※ 투표는 계정당 1회 가능합니다.
 					</div>
 				</div>
-				<div class="row">
-					<h3>상권 분석</h3>
-					<div class="col-lg-12">
-
-						<div class="star"><p class="score1"></p></div> 
-						<div class="star"><p class="score2"></p></div> 
-						<div class="star"><p class="score3"></p></div> 
-						<div class="star"><p class="score4"></p></div> 
-							
-					</div>
-					
-				</div>
+				
 			</div>
 
 			
@@ -348,6 +412,17 @@
 													<div class="br"></div>
 											</aside>
 											<aside class="single_sidebar_widget author_widget">
+													
+				
+													
+													
+													<h4>해당 매물 상세정보</h4>
+													<!-- <p>Senior blog writer </p> -->
+													<div class="social_icon"> </div>
+													<p><%=BD_INFO %>
+													</p>
+													<div class="br"></div>
+													
 													<div id = 'TA' class="row">
 					<h3 id = 'title_star'>상권 분석</h3>
 					<div class="col-lg-12">
@@ -359,29 +434,18 @@
 						<div class="star"><p class="star_stb"></p></div> <br>
 						<br><p class = 'TA_dtl'> 안정성 </p><br>
 						<div class="star"><p class="star_grw"></p></div> <br>
-						<br><p class = 'TA_dtl'> 성장성 </p><br>
-						
-							
+						<br><p class = 'TA_dtl'> 성장성 </p><br>		
 					</div>
-					
 				</div>
-													<h4>해당 매물 상세정보</h4>
-													<p>Senior blog writer</p>
-													<div class="social_icon"> </div>
-													<p>매물 정보 내용은 어떻게 입력하지?amps have its supporters andit sdetractors. Some people do not understand why you should
-															have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits
-															detractors.
-													</p>
-													<div class="br"></div>
+				<div class="br"></div>
 											</aside>
 											<aside class="single_sidebar_widget popular_post_widget">
-												<button class="widget_title"> 수요조사 참여하기
-												</button>
+												<button id = "2PYO" class="widget_title">수요조사 참여하기</button>
 													<!--업종 dropdown-->
 													<div class="media post_item">
 														<form>
 
-														<select>
+														<select id = 'pp'>
 															<option value=""  select=selected>업종선택</option>
 															<optgroup label="휴게음식점(카페,제과)">
 																<option value="커피">커피</option>

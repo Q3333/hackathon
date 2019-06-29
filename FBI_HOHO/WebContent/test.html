@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+
+  //   $(function K_E(String a){
+  // });
+
+
+    $('#2PYO').click(function() {
+       var value = $('#pp> optgroup> option:selected').val();
+       var K = value;
+       var E = null;
+       if(K==("커피")) E="COFFEE";        
+       if(K==("베이커리")) E="BAKERY";
+       if(K==("아이스크림")) {E="ICECREAM"};
+       if(K==("한식")) {E="KRFOOD"};  
+       if(K==("양식")) E="RESTAURANT";
+       if(K==("중식")) E="CHIFOOD";
+       if(K==("일식")) E="JAPFOOD";
+       if(K==("분식")) E="SNACKBAR";
+       if(K==("베트남 음식")) E="VIETFOOD";
+       if(K==("고기집")) E="MEATREST";
+       if(K==("치킨")) E="CHICKEN";
+       if (K==("피자")) E="PIZZA";
+       if (K==("햄버거")) E="HAMBURGER";
+       if (K==("야식메뉴")) E="NIGHTMEAL";         
+           
+       if (K==("편의점")) E="CONVENIENSTORE";
+       if (K==("화장품")) E="COSMETICS";
+       if (K==("악세사리")) E="ACCESSORY";
+       if (K==("핸드폰 가맹점")) E="PHONE";   
+           
+       if (K==("헬스장")) E="FITNESS";     
+       if (K==("요가")) E="YOGA";      
+       if (K==("당구장")) E="BILLIARD";     
+       if (K==("스크린골프")) E="SCREENGOLF";     
+       if (K==("마사지")) E="MASSAGE";      
+       if (K==("네일샵")) E="NAILCARE";      
+       if (K==("피시방")) E="PC";      
+       if (K==("노래방")) E="KARAOKE";            
+
+       if (K==("호텔")) E="HOTEL";
+       if (K==("모텔")) E="MOTEL";
+      alert(E);
+    });
+
+
+  });
+ 
+</script>
+
+</head>
+<body>
+
+          <select id = 'pp'>
+              <option value=""  select=selected>업종선택</option>
+              <optgroup label="휴게음식점(카페,제과)">
+                <option value="커피">커피</option>
+                <option value="베이커리">베이커리</option>
+                <option value="아이스크림">아이스크림</option>
+              </optgroup>
+              <optgroup label="일반음식점">
+                <option value="한식">한식</option>
+                <option value="양식">양식</option>
+                <option value="중식">중식</option>
+                <option value="일식">일식</option>
+                <option value="분식">분식</option>
+                <option value="베트남 음식">베트남 음식</option>
+                <option value="고기집">고기집</option>
+                <option value="치킨">치킨</option>
+                <option value="피자">피자</option>
+                <option value="햄버거">햄버거</option>
+                <option value="야식메뉴">야식메뉴</option>          
+              </optgroup>
+              <optgroup label="로드샵">
+                <option value="편의점">편의점</option>
+                <option value="화장품">화장품</option>
+                <option value="악세사리">악세사리</option>
+                <option value="핸드폰 가맹점">핸드폰 가맹점</option>      
+              </optgroup>
+              <optgroup label="여가시설">
+                <option value="헬스장">헬스장</option>      
+                <option value="요가">요가</option>      
+                <option value="당구장">당구장</option>      
+                <option value="스크린골프">스크린골프</option>      
+                <option value="마사지">마사지</option>      
+                <option value="네일샵">네일샵</option>      
+                <option value="피시방">피시방</option>      
+                <option value="노래방">노래방</option>            
+              </optgroup>
+              <optgroup label="숙박시설">
+                <option value="호텔">호텔</option>
+                <option value="모텔">모텔</option>
+              </optgroup>
+            </select>
+   
+
+    </div>
+    <div class="media post_item">
+
+
+      <select>
+        <option value="" >리워드선택</option>
+        <option value="무료쿠폰">무료쿠폰</option>
+        <option value="굿즈">굿즈</option>
+        <option value="할인카드">할인카드</option>
+        <option value="포인트카드">포인트카드</option>
+        
+      </select>        
+           </div>
+                        
+                        
+                        <div class="br"></div>
+                        <h3 class="widget_title">투표완료?</h3>                     
+                        <div class="media post_item">
+                          <input id = "2PYO" type="submit" value="투표하기">
+                          <input type="button" value="창업신청하기">
+                        </div>
+                       
+</body>
+</html>
