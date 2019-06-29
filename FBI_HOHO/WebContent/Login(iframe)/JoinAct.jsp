@@ -24,6 +24,12 @@ int indexnum=0;
 Enumeration<String> total = request.getParameterNames();
 Enumeration<String> params = request.getParameterNames();
 
+String cL[]=request.getParameterValues("concernList");
+String str="";
+for(int i=0; i<cL.length; i++){
+	str=str+cL[i]+";";
+}
+
 while(total.hasMoreElements()){
 	total.nextElement();
 	totlanum++;
@@ -34,7 +40,11 @@ String userinfo[] = new String[totlanum];
 
 while(params.hasMoreElements()){
 	attribute[indexnum]=(String)params.nextElement();
-	userinfo[indexnum]=(String)request.getParameter(attribute[indexnum]);
+	if(attribute[indexnum].equals("concernList")){
+		userinfo[indexnum]=str;
+	}else{
+		userinfo[indexnum]=(String)request.getParameter(attribute[indexnum]);
+	}
 	indexnum++;
 }
 for(int i=0; i<totlanum;i++){
@@ -80,9 +90,7 @@ else if(select ==2){
 	if(result>0){
 		out.println("<script>");
 		out.println("alert('일반사용자 가입 성공')");
-
 		out.println("window.parent.location.href='login.jsp'</script>");
-
 
 	}
 	else if(result==0){
