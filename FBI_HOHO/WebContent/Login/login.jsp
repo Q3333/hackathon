@@ -26,23 +26,19 @@ background-color: yellow;
 %>
 
 <body>
-
-
 <form method="get" action="loginAct.jsp">
 <h4>로그인</h4>
 <label>아이디 </label>
 <input type="text" placeholder="영문 8자이상" name="userid"><br>
-<label>비밀번호</label>
+<label>비밀번호</label>	
 <input type="password" placeholder="영문 + 특수문자 8자이상" name="userpass"><br>
 <input type="submit" value="로그인" name="login">
 </form>
 <form name="form1" method="get" action="SelectJoin.jsp">
+<input type="hidden" name="select" value="1"/>
 <input type="button" value="회원가입" onclick="moveJoin()"><br>
 <label><%= hoho%></label>
 
 </form>
-
-
-
 </body>
 </html>

@@ -27,13 +27,15 @@
 	
 
 	UserDao userDao = new UserDao();
+	session.setAttribute("ID", user.getUserid());//오류나면 보기
+	session.setAttribute("PASS", user.getUserpass());//오류나면 보기
 	
 	int result = userDao.login(user.getUserid(), user.getUserpass());
 	
 	if(result==1){
 		out.println("<script>");
 		out.println("alert('로그인 성공!')");
-		out.println("location.href='../main/main.jsp'");
+		out.println("location.href='../main/mainDbAct.jsp'");
 		out.println("</script>");
 	}
 	else if(result==0){
@@ -45,9 +47,7 @@
 	else if(result==-1){
 		out.println("<script>");
 		out.println("alert('아이디가 존재하지 않습니다.')");
-		//out.println("history.back()");
 		out.println("</script>");		
-		//pageContext.forward("login.jsp?hoho=123");
 		response.sendRedirect("login.jsp?hoho=123");
 	}
 	else if(result==-2){
