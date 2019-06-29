@@ -1,8 +1,3 @@
-<%@page import="java.util.Date"%>
-<%@page import="java.util.Calendar"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.HashMap"%>
-<%@page import="lab.java.user.UserDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,7 +6,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>FBI - SERVICE 1</title>
+  <title>FBI - Home</title>
 	<link rel="icon" href="img/lg2.png" type="image/png">
 
   <link rel="stylesheet" href="vendors/bootstrap/bootstrap.min.css">
@@ -31,91 +26,25 @@
     #searchEngine {
       float: right; margin-top: 60px; margin-right: 200px;
     }
+
     .arrange {
       font-size: 17px; color:#FFBB00; border:solid 1px; max-width: 80px; padding-left: 2px;
     }
+
     .arrange_span{
       margin-left: 12px;
     }
+
+  
+
     #whole {
       float: right;
     }
   </style>
+
+
 </head>
 <body>
-
-  <script>
-  function onClick(select){
-	  if(select == 1){
-		  document.form1.submit();
-	  }
-	  else if (select == 2){
-		  document.form2.submit();
-	  }
-	  else if (select == 3){
-		  document.form3.submit();
-	  }
-	  else if (select == 4){
-		  document.form4.submit();
-	  }
-	  else if (select == 5){
-		  document.form5.submit();
-	  }
-	  else if (select == 6){
-		  document.form6.submit();
-	  }
-  
-  }
-  </script>
-<%
-	UserDao userdao = new UserDao();
-	HashMap<Integer,HashMap<String,String>> map = userdao.getXY(3);
-	
-	
-	for(int i = 1;i<=map.size();i++) {
-		System.out.println(map.get(i));
-	}
-	
-	SimpleDateFormat dt = new SimpleDateFormat("yyyyy-MM-dd hh:mm:ss"); 
-	Calendar cal = Calendar.getInstance();
-	
-	int money[] = new int[7];
-	String startDate[] = new String[7];
-	String endDate[] = new String[7];
-	
-	Date startD[] = new Date[7];
-	Date startE[] = new Date[7];
-	
-	long calDate[] = new long[7];
-	long calDateDays[] = new long[7];
-	
-	
-	for(int i = 1; i<=6;i++){
-		double moneyA =Integer.parseInt(map.get(i).get("CURRENTMONEY"));
-		double moneyB =Integer.parseInt(map.get(i).get("FOUNDENDMONEY")); 
-		money[i] = (int)((moneyA/moneyB)*100);
-		
-		startDate[i] =	map.get(i).get("STARTDATE");
-		endDate[i] = map.get(i).get("ENDDATE");
-		
-		startD[i] = dt.parse(startDate[i]);
-		startE[i] = dt.parse(endDate[i]);
-		
-		calDate[i] = startE[i].getTime() - startD[i].getTime();
-		calDateDays[i] = calDate[i] / ( 24*60*60*1000);
-		calDateDays[i] = Math.abs(calDateDays[i]);
-
-	} 
-	
-	HashMap<Integer,HashMap<Integer,String>> voteResult = new HashMap<Integer,HashMap<Integer,String>>();
-	HashMap<Integer,String> vote = new HashMap<Integer,String>();
-	
-	 for(int i = 1 ; i<=map.size();i++){
-		voteResult.put(i, userdao.vote(userdao.getCategory(map.get(i).get("BDID"))));
-	} 
-
-
-%>
 <!--================ Header Top Area Start =================-->
 <section class="header-top d-none d-sm-block">
   <div class="container">
@@ -296,91 +225,85 @@
 
         <!-- causes -->
         <div class="col-md-4">
-        <form name ="form1" method="get" action="blog-details.jsp">
-        <input type="hidden" name="BDID" value=<%=map.get(1).get("BDID") %>  />
           <div class="causes">
             <div class="causes-img">
-              <a onclick="onClick(1)"">
+              <a href="blog-details_vote.jsp">
                   <img src="./img/index/상가4.jpg" alt="">
                 </a>
             </div>
             <div class="causes-progress">
               <div class="causes-progress-bar">
-                <div style="width: <%=voteResult.get(1).get(2) %>%;">
-                  <span><%=voteResult.get(1).get(2) %>%</span>
+                <div style="width: 87%;">
+                  <span>87%</span>
                 </div>
               </div>
               <div>
-                <span class="causes-raised">현재 1위: <strong><%=voteResult.get(1).get(1) %></strong></span>
+                <span class="causes-raised">현재 1위: <strong>카페</strong></span>
+                <span class="causes-goal">현재 2위: <strong>고기집</strong></span>
               </div>
             </div>
             <div class="causes-content">
-              <h3><a onclick="onClick(1)"><%=map.get(1).get("COMMENTS") %></a></h3>
-              <p><%=map.get(1).get("ADDRESS") %></p>
-              <a onclick="onClick(1)" class="primary-button causes-donate">수요조사 바로가기</a>
+              <h3><a href="blog-details_vote.jsp">[강남] 역삼역 2번출구 500m</a></h3>
+              <p>수요조사 마감일까지 3일!</p>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
-          </form>
         </div>
         <!-- /causes -->
 
         <!-- causes -->
         <div class="col-md-4">
-        <form name ="form2" method="get" action="blog-details.jsp">
-        <input type="hidden" name="BDID" value=<%=map.get(2).get("BDID") %>  />
           <div class="causes">
             <div class="causes-img">
-              <a onclick="onClick(2)">
+              <a href="blog-details_vote.jsp">
                   <img src="./img/index/상가3.jpg" alt="">
                 </a>
             </div>
             <div class="causes-progress">
               <div class="causes-progress-bar">
-                <div style="width: <%=voteResult.get(2).get(2) %>%;">
-                  <span><%=voteResult.get(2).get(2) %>%</span>
+                <div style="width: 53%;">
+                  <span>53%</span>
                 </div>
               </div>
               <div>
-                <span class="causes-raised">현재 1위: <strong><%=voteResult.get(2).get(1) %></strong></span>
+                <span class="causes-raised">현재 1위: <strong>빵집</strong></span>
+                <span class="causes-goal">현재 2위: <strong>PC방</strong></span>
               </div>
             </div>
             <div class="causes-content">
-              <h3><a onclick="onClick(2)"><%=map.get(2).get("COMMENTS") %></a></h3>
-              <p><%=map.get(2).get("ADDRESS") %></p>
-              <a onclick="onClick(2)" class="primary-button causes-donate">수요조사 바로가기</a>
+              <h3><a href="blog-details_vote.jsp">[강남] 강남역 4번출구 200m</a></h3>
+              <p>수요조사 마감일까지 5일!</p>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
-          </form>
         </div>
         <!-- /causes -->
 
         <!-- causes -->
         <div class="col-md-4">
-        <form name ="form3" method="get" action="blog-details.jsp">
-        <input type="hidden" name="BDID" value=<%=map.get(3).get("BDID") %>  />
           <div class="causes">
             <div class="causes-img">
-              <a onclick="onClick(3)">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가5.jpg" alt="">
               </a>
             </div>
             <div class="causes-progress">
               <div class="causes-progress-bar">
-                <div style="width: <%=voteResult.get(3).get(2) %>%;">
-                  <span><%=voteResult.get(3).get(2) %>%</span>
+                <div style="width: 72%;">
+                  <span>72%</span>
                 </div>
               </div>
               <div>
-                <span class="causes-raised">현재 1위: <strong><%=voteResult.get(3).get(1) %></strong></span>
+                <span class="causes-raised">현재 1위: <strong>헬스장</strong></span>
+                <span class="causes-goal">현재 2위: <strong>미용실</strong></span>
               </div>
             </div>
             <div class="causes-content">
-              <h3><a onclick="onClick(3)"><%=map.get(3).get("COMMENTS") %></a></h3>
-              <p><%=map.get(3).get("ADDRESS") %></p>
-              <a onclick="onClick(3)" class="primary-button causes-donate">수요조사 바로가기</a>
+              <h3><a href="blog-details_vote.jsp">[종로] 종각역 6번출구 700m</a></h3>
+              <p>수요조사 마감일까지 1주일!</p>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
-          </form>
         </div>
         <!-- /causes -->
 
@@ -388,91 +311,85 @@
 
         <!-- causes -->
         <div class="col-md-4">
-        <form name ="form4" method="get" action="blog-details.jsp">
-        <input type="hidden" name="BDID" value=<%=map.get(4).get("BDID") %>  />
           <div class="causes">
             <div class="causes-img">
-              <a onclick="onClick(4)">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가6.jpg" alt="">
               </a>
             </div>
             <div class="causes-progress">
               <div class="causes-progress-bar">
-                <div style="width: <%=voteResult.get(4).get(2) %>%;">
-                  <span><%=voteResult.get(4).get(2) %>%</span>
+                <div style="width: 64%;">
+                  <span>64%</span>
                 </div>
               </div>
               <div>
-                <span class="causes-raised">현재 1위: <strong><%=voteResult.get(4).get(1) %></strong></span>
+                <span class="causes-raised">현재 1위: <strong>목욕탕</strong></span>
+                <span class="causes-goal">현재 2위: <strong>가구점</strong></span>
               </div>
             </div>
             <div class="causes-content">
-              <h3><a onclick="onClick(4)"><%=map.get(4).get("COMMENTS") %></a></h3>
-              <p><%=map.get(4).get("ADDRESS") %></p>
-              <a onclick="onClick(4)" class="primary-button causes-donate">수요조사 바로가기</a>
+              <h3><a href="blog-details_vote.jsp">[강남] 선릉역 4번출구 200m</a></h3>
+              <p>수요조사 마감일까지 6일!</p>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
-          </form>
         </div>
         <!-- /causes -->
 
         <!-- causes -->
         <div class="col-md-4">
-        <form name ="form5" method="get" action="blog-details.jsp">
-        <input type="hidden" name="BDID" value=<%=map.get(5).get("BDID") %>  />
           <div class="causes">
             <div class="causes-img">
-              <a onclick="onClick(5)">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가7.jpg" alt="">
               </a>
             </div>
             <div class="causes-progress">
               <div class="causes-progress-bar">
-                <div style="width: <%=voteResult.get(5).get(2) %>%;">
-                  <span><%=voteResult.get(5).get(2) %>%</span>
+                <div style="width: 72%;">
+                  <span>72%</span>
                 </div>
               </div>
               <div>
-                <span class="causes-raised">현재 1위: <strong><%=voteResult.get(5).get(1) %></strong></span>
+                <span class="causes-raised">현재 1위: <strong>제과점</strong></span>
+                <span class="causes-goal">현재 2위: <strong>카페</strong></span>
               </div>
             </div>
             <div class="causes-content">
-              <h3><a onclick="onClick(5)"><%=map.get(5).get("COMMENTS") %></a></h3>
-              <p><%=map.get(5).get("ADDRESS") %></p>
-              <a onclick="onClick(5)" class="primary-button causes-donate">수요조사 바로가기</a>
+              <h3><a href="blog-details_vote.jsp">[종로] 종로2가 삼선교</a></h3>
+              <p>수요조사 마감일까지 2주일!</p>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
-          </form>
         </div>
         <!-- /causes -->
 
         <!-- causes -->
         <div class="col-md-4">
-        <form name ="form6" method="get" action="blog-details.jsp">
-        <input type="hidden" name="BDID" value=<%=map.get(6).get("BDID") %>  />
           <div class="causes">
             <div class="causes-img">
-              <a onclick="onClick(6)">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가3.jpg" alt="">
               </a>
             </div>
             <div class="causes-progress">
               <div class="causes-progress-bar">
-                <div style="width: <%=voteResult.get(6).get(2) %>%;">
-                  <span><%=voteResult.get(6).get(2) %>%</span>
+                <div style="width: 53%;">
+                  <span>53%</span>
                 </div>
               </div>
               <div>
-                <span class="causes-raised">현재 1위: <strong><%=voteResult.get(6).get(1) %></strong></span>
+                <span class="causes-raised">현재 1위: <strong>양식집</strong></span>
+                <span class="causes-goal">현재 2위: <strong>코인노래방</strong></span>
               </div>
             </div>
             <div class="causes-content">
-              <h3><a onclick="onClick(6)"><%=map.get(6).get("COMMENTS") %></a></h3>
-              <p><%=map.get(6).get("ADDRESS") %></p>
-              <a onclick="onClick(6)" class="primary-button causes-donate">수요조사 바로가기</a>
+              <h3><a href="blog-details_vote.jsp">[시청] 광화문역 4번출구 50m</a></h3>
+              <p>수요조사 마감일까지 3일!</p>
+              <a href="blog-details_vote.jsp" class="primary-button causes-donate">수요조사 바로가기</a>
             </div>
           </div>
-          </form>
         </div>
         <!-- /causes -->
 
@@ -506,12 +423,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가3.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">꿈을 담은 빵</a></h3>
+              <h3><a href="blog-details_vote.jsp">꿈을 담은 빵</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 2019년 6월 30일 후원 시작!</li>
                 <li><i class="fa fa-map-marker"></i> 서울특별시 종로구 교남동 송월길99</li>
@@ -526,12 +443,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가4.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
+              <h3><a href="blog-details_vote.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
                 <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
@@ -548,12 +465,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가5.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
+              <h3><a href="blog-details_vote.jsp">Possit nostro aeterno eu vis, ut cum quem reque</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
                 <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
@@ -568,12 +485,12 @@
         <div class="col-md-6">
           <div class="event">
             <div class="event-img">
-              <a href="single-event.jsp">
+              <a href="blog-details_vote.jsp">
                 <img src="./img/index/상가6.jpg" alt="">
               </a>
             </div>
             <div class="event-content">
-              <h3><a href="single-event.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
+              <h3><a href="blog-details_vote.jsp">Vix fuisset tibique facilisis cu. Justo accusata ius at</a></h3>
               <ul class="event-meta">
                 <li><i class="fa fa-clock-o"></i> 24 October, 2018 | 8:00AM - 11:00PM</li>
                 <li><i class="fa fa-map-marker"></i> 2736 Hinkle Deegan Lake Road</li>
