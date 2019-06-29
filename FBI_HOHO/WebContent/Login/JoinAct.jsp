@@ -20,8 +20,6 @@ UserDao userdao= new UserDao();
 int totlanum=0;
 int indexnum=0;
 
-out.println("<script type='text/javascript'>alert("+select+")</script>");
-System.out.println(select);
 
 Enumeration<String> total = request.getParameterNames();
 Enumeration<String> params = request.getParameterNames();
@@ -48,29 +46,44 @@ for(int i=0; i<totlanum;i++){
 
 if(select == 1){
 	//창업자
+	for(int i = 0;i<attribute.length;i++){
+		System.out.printf("attribute[%d] = %s \n",i,attribute[i]);
+	}
+	for(int i = 0; i<userinfo.length;i++){
+		System.out.printf("userinfo[%d] = %s \n",i,userinfo[i]);
+	}
 	result=userdao.join(1,attribute,userinfo);
+	System.out.println(result);
+	
 	if(result>0){
 		out.println("<script>alert('창업자 가입 성공')");
-		//out.println("location.href='login.jsp'");
+		out.println("window.parent.location.href='login.jsp'</script>");
 		out.println("</script>");
 	}
 	else if(result==0){
 		out.println("<script type='text/javascript'>alert('창업자 가입 실패')");
-		//out.println("history.back()</script>");
+		out.println("history.back()</script>");
 	}
 	
 }
 else if(select ==2){
 	//일반사용자
+	for(int i = 0;i<attribute.length;i++){
+		System.out.printf("attribute[%d] = %s \n",i,attribute[i]);
+	}
+	for(int i = 0; i<userinfo.length;i++){
+		System.out.printf("userinfo[%d] = %s \n",i,userinfo[i]);
+	}
 	result=userdao.join(2,attribute,userinfo);
-	out.println("<script type='text/javascript'>console.log('result = "+result+"')</script><br>");
+	System.out.println(result);
 	
 	if(result>0){
 		out.println("<script>");
 		out.println("alert('일반사용자 가입 성공')");
-		out.println("location.href='login.jsp'");
-		out.println("</script>");
-	
+
+		out.println("window.parent.location.href='login.jsp'</script>");
+
+
 	}
 	else if(result==0){
 		out.println("<script>alert('일반사용자 가입 실패')");
