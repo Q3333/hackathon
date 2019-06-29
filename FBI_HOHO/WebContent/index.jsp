@@ -48,6 +48,7 @@
 <body>
 
 <%
+<<<<<<< HEAD
    UserDao userdao = new UserDao();
    HashMap<Integer,HashMap<String,String>> map=userdao.getXY();
    
@@ -93,10 +94,61 @@
    
    
    
+=======
+	UserDao userdao = new UserDao();
+	HashMap<Integer,HashMap<String,String>> map = userdao.getXY(1);
+	
+	
+	SimpleDateFormat dt = new SimpleDateFormat("yyyyy-MM-dd hh:mm:ss"); 
+	Calendar cal = Calendar.getInstance();
+	
+	int money[] = new int[6];
+	String startDate[] = new String[6];
+	String endDate[] = new String[6];
+	
+	Date startD[] = new Date[6];
+	Date startE[] = new Date[6];
+	
+	long calDate[] = new long[6];
+	long calDateDays[] = new long[6];
+	
+	
+	
+
+	for(int i = 1; i<=3;i++){
+		double moneyA =Integer.parseInt(map.get(i).get("CURRENTMONEY"));
+		double moneyB =Integer.parseInt(map.get(i).get("FOUNDENDMONEY")); 
+		money[i] = (int)((moneyA/moneyB)*100);
+		
+		startDate[i] =	map.get(i).get("STARTDATE");
+		endDate[i] = map.get(i).get("ENDDATE");
+		
+		startD[i] = dt.parse(startDate[i]);
+		startE[i] = dt.parse(endDate[i]);
+		
+		calDate[i] = startE[i].getTime() - startD[i].getTime();
+		calDateDays[i] = calDate[i] / ( 24*60*60*1000);
+		calDateDays[i] = Math.abs(calDateDays[i]);
+
+	}
+	
+	
+	//투표
+	HashMap<Integer,HashMap<Integer,String>> voteResult = new HashMap<Integer,HashMap<Integer,String>>();
+	HashMap<Integer,String> vote = new HashMap<Integer,String>();
+	
+	 for(int i = 1 ; i<=map.size();i++){
+		voteResult.put(i, userdao.vote(userdao.getCategory(map.get(i).get("BDID"))));
+	} 
+	 
+	 
+
+>>>>>>> fbi/fbi_bonobono
 %>
 
   <script>
   function onClick(select){
+<<<<<<< HEAD
      if(select == 1){
         document.form1.submit();
      }
@@ -115,6 +167,26 @@
      else if (select == 6){
         document.form6.submit();
      }
+=======
+	  if(select == 1){
+		  document.form1.submit();
+	  }
+	  else if (select == 2){
+		  document.form2.submit();
+	  }
+	  else if (select == 3){
+		  document.form3.submit();
+	  }
+	  else if (select == 4){
+		  document.form4.submit();
+	  }
+	  else if (select == 5){
+		  document.form5.submit();
+	  }
+	  else if (select == 6){
+		  document.form6.submit();
+	  }
+>>>>>>> fbi/fbi_bonobono
   
   }
   </script>
@@ -233,6 +305,7 @@
   <!-- causes -->
 
   <form name ="form1" method="get" action="blog-details.jsp">
+<<<<<<< HEAD
      <div class="col-md-4">
        <div class="causes">
          <div class="causes-img">
@@ -259,6 +332,33 @@
          </div>
        </div>
      </div>
+=======
+	  <div class="col-md-4">
+	    <div class="causes">
+	      <div class="causes-img">
+	      <input type="hidden" name="BDID" value=<%=map.get(4).get("BDID") %>  />
+	        <a onclick="onClick(1)">
+	            <img src="./img/index/상가4.jpg"  alt="" >
+	          </a>
+	      </div>
+	      <div class="causes-progress">
+	        <div class="causes-progress-bar">
+	          <div style="width: <%=voteResult.get(4).get(2) %>%;">
+	            <span><%=voteResult.get(4).get(2) %>%</span>
+	          </div>
+	        </div>
+	        <div>
+	          <span class="causes-raised">현재 1위: <strong><%=voteResult.get(4).get(1) %></strong></span>
+	        </div>
+	      </div>
+	      <div class="causes-content">
+	        <h3><a onclick="onClick(1)"><%=map.get(4).get("COMMENTS") %></a></h3>
+	        <p><%=map.get(4).get("ADDRESS")%></p>
+	        <a onclick="onClick(1)" class="primary-button causes-donate">수요조사 바로가기</a>
+	      </div>
+	    </div>
+	  </div>
+>>>>>>> fbi/fbi_bonobono
   </form>
   <!-- /causes -->
 
@@ -274,13 +374,12 @@
       </div>
       <div class="causes-progress">
         <div class="causes-progress-bar">
-          <div style="width: 53%;">
-            <span>53%</span>
+          <div style="width: <%=voteResult.get(5).get(2) %>%;">
+            <span><%=voteResult.get(5).get(2) %>%</span>
           </div>
         </div>
         <div>
-          <span class="causes-raised">현재 1위: <strong>빵집</strong></span>
-          <span class="causes-goal">현재 2위: <strong>PC방</strong></span>
+          <span class="causes-raised">현재 1위: <strong><%=voteResult.get(5).get(1) %></strong></span>
         </div>
       </div>
       <div class="causes-content">
@@ -294,7 +393,11 @@
   <!-- /causes -->
 
   <!-- causes -->
+<<<<<<< HEAD
   <form name ="form3" method="get" action="blog-details_vote.jsp">
+=======
+  <form name ="form3" method="get" action="blog-details.jsp">
+>>>>>>> fbi/fbi_bonobono
   <input type="hidden" name="BDID" value=<%=map.get(6).get("BDID") %>  />
   <div class="col-md-4">
     <div class="causes">
@@ -305,13 +408,12 @@
       </div>
       <div class="causes-progress">
         <div class="causes-progress-bar">
-          <div style="width: 72%;">
-            <span>72%</span>
+          <div style="width: <%=voteResult.get(6).get(2) %>%;">
+            <span><%=voteResult.get(6).get(2) %>%</span>
           </div>
         </div>
         <div>
-          <span class="causes-raised">현재 1위: <strong>헬스장</strong></span>
-          <span class="causes-goal">현재 2위: <strong>미용실</strong></span>
+          <span class="causes-raised">현재 1위: <strong><%=voteResult.get(6).get(1) %></strong></span>
         </div>
       </div>
       <div class="causes-content">

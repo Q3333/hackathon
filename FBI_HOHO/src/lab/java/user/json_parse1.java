@@ -32,7 +32,8 @@ public class json_parse1 {
 				"월세가",
 				"전세가",
 				"관리비",
-				"평면도이미지파일명"
+				"평면도이미지파일명",
+				"특징광고내용"
 				};
 		String result[] = new String[userAttribute.length];
 		try {
