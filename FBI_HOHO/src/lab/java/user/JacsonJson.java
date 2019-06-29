@@ -48,6 +48,8 @@ public class JacsonJson {
 			String sql = " insert into marketResearch values(market_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 			
 			pstmt = conn.prepareStatement(sql);
+			
+			
 
 			/*원본
 			 * ObjectMapper mapper = new ObjectMapper(); Map<String, Object> map =
